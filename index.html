@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IELTS Speaking 互動題庫｜Part 1–3</title>
+<style>
+:root{
+  --bg:#f5f7fb; --card:#ffffff; --text:#18212f; --muted:#64748b;
+  --line:#e2e8f0; --accent:#5b5bd6; --accent-soft:#eeeeff;
+  --good:#0f766e; --shadow:0 8px 24px rgba(15,23,42,.07);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,"Noto Sans TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+button,input{font:inherit}
+button{cursor:pointer}
+.container{max-width:1100px;margin:0 auto;padding:28px 18px 60px}
+.hero{background:linear-gradient(135deg,#ffffff,#f0f2ff);border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:var(--shadow)}
+.hero h1{margin:0 0 8px;font-size:clamp(26px,4vw,42px);line-height:1.2}
+.hero p{margin:0;color:var(--muted)}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.badge{background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 11px;font-size:13px;color:var(--muted)}
+.toolbar{display:grid;grid-template-columns:1fr auto;gap:10px;margin-top:18px}
+.search{width:100%;padding:13px 15px;border:1px solid var(--line);border-radius:14px;background:#fff;outline:none}
+.search:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.primary{border:0;border-radius:14px;padding:12px 16px;background:var(--accent);color:#fff;font-weight:700}
+.secondary{border:1px solid var(--line);border-radius:12px;padding:10px 13px;background:#fff;color:var(--text)}
+.tabs{display:flex;flex-wrap:wrap;gap:9px;margin:16px 0 8px}
+.tab{border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 15px;font-weight:700;color:#475569}
+.tab.active{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.stats{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin:22px 0 12px;color:var(--muted);font-size:14px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.random-box{display:none;margin-top:18px;padding:20px;background:#fff;border:2px solid var(--accent);border-radius:20px;box-shadow:var(--shadow)}
+.random-box.show{display:block}
+.random-meta{font-size:12px;font-weight:800;letter-spacing:.06em;color:var(--accent);text-transform:uppercase}
+.random-q{font-size:21px;font-weight:800;margin:8px 0 14px}
+.random-answer{display:none;border-top:1px solid var(--line);margin-top:14px;padding-top:14px}
+.random-answer.show{display:block}
+.answer-block{background:#f8fafc;border-radius:14px;padding:14px 16px;margin-top:10px}
+.answer-label{font-size:11px;font-weight:800;letter-spacing:.07em;color:var(--muted)}
+.group{margin-top:24px}
+.group-head{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+.group-head h2{margin:0;font-size:19px}
+.count{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 8px;background:#fff}
+details{background:#fff;border:1px solid var(--line);border-radius:15px;margin:8px 0;overflow:hidden;box-shadow:0 2px 8px rgba(15,23,42,.03)}
+summary{list-style:none;padding:15px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:700}
+summary::-webkit-details-marker{display:none}
+.chev{color:var(--muted);transition:.2s}
+details[open] .chev{transform:rotate(180deg)}
+.answer{border-top:1px solid var(--line);padding:16px 18px}
+.answer p{margin:5px 0 14px}
+.keyline{border-left:4px solid var(--accent);padding:10px 12px;background:var(--accent-soft);border-radius:0 10px 10px 0;margin-top:10px}
+.empty{padding:25px;background:#fff;border:1px solid var(--line);border-radius:16px;color:var(--muted);text-align:center}
+.footer{text-align:center;color:var(--muted);font-size:13px;margin-top:34px}
+@media(max-width:650px){
+  .container{padding:16px 12px 40px}
+  .hero{padding:20px}
+  .toolbar{grid-template-columns:1fr}
+  .primary{width:100%}
+  summary{padding:14px}
+  .answer{padding:14px}
+}
+@media print{
+  body{background:#fff}
+  .toolbar,.tabs,.actions,.random-box{display:none!important}
+  details{break-inside:avoid}
+  details .answer{display:block!important}
+}
+
+.ai-card{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:var(--shadow)}
+.ai-title{font-size:20px;font-weight:800}
+.ai-sub{color:var(--muted);font-size:14px;margin-top:3px}
+.ai-grid{display:grid;grid-template-columns:160px 1fr;gap:12px;margin-top:16px;align-items:start}
+.field-label{display:block;font-size:12px;font-weight:800;color:var(--muted);margin:0 0 6px}
+.field{width:100%;border:1px solid var(--line);border-radius:13px;padding:12px 13px;background:#fff;color:var(--text);font-size:16px;outline:none}
+.field:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.textarea{resize:vertical;min-height:74px}
+.example-label{display:block;margin-top:12px}
+.ai-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:13px}
+.ask-status{font-size:13px;color:var(--muted);margin-top:10px;min-height:20px}
+.ai-result{margin-top:16px;border-top:1px solid var(--line);padding-top:16px}
+.ai-text{white-space:pre-wrap;background:#f8fafc;border-radius:14px;padding:16px;line-height:1.8}
+@media(max-width:650px){
+  .ai-grid{grid-template-columns:1fr}
+  .ai-card{padding:16px}
+  .ai-actions .primary,.ai-actions .secondary{width:100%}
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+  <section class="hero">
+    <h1>IELTS Speaking 互動題庫</h1>
+    <p>Part 1–3｜簡單英文 × 清楚邏輯 × 繁中翻譯｜點題目即可展開答案</p>
+    <div class="badges">
+      <span class="badge">Band 9 thinking</span>
+      <span class="badge">Simple English</span>
+      <span class="badge">生活化回答</span>
+      <span class="badge" id="totalBadge">171 questions</span>
+    </div>
+    <div class="toolbar">
+      <input id="search" class="search" type="search" placeholder="搜尋：AI、friends、history、工作、travel…">
+      <button id="randomBtn" class="primary">🎲 隨機抽題</button>
+    </div>
+    <div class="tabs">
+      <button class="tab active" data-part="all">全部</button>
+      <button class="tab" data-part="Part 1">Part 1</button>
+      <button class="tab" data-part="Part 2">Part 2</button>
+      <button class="tab" data-part="Part 3">Part 3</button>
+    </div>
+  </section>
+
+  <section id="randomBox" class="random-box">
+    <div class="random-meta" id="randomMeta"></div>
+    <div class="random-q" id="randomQ"></div>
+    <div class="actions">
+      <button id="revealBtn" class="primary">顯示答案</button>
+      <button id="nextBtn" class="secondary">下一題</button>
+    </div>
+    <div id="randomAnswer" class="random-answer">
+      <div class="answer-block"><div class="answer-label">ENGLISH</div><div id="randomEn"></div></div>
+      <div class="answer-block"><div class="answer-label">中文翻譯</div><div id="randomZh"></div></div>
+    </div>
+  </section>
+
+
+  <section class="ai-card" id="aiAsk">
+    <div class="ai-head">
+      <div>
+        <div class="ai-title">✨ 自由輸入口說題目</div>
+        <div class="ai-sub">選擇 Part，輸入中文或英文題目；AI 會用簡單英文＋Band 9 邏輯回答，並附繁中翻譯。</div>
+      </div>
+    </div>
+
+    <form id="askForm">
+      <div class="ai-grid">
+        <label>
+          <span class="field-label">Part</span>
+          <select id="askPart" class="field">
+            <option value="Part 1">Part 1</option>
+            <option value="Part 2">Part 2</option>
+            <option value="Part 3">Part 3</option>
+          </select>
+        </label>
+        <label class="grow">
+          <span class="field-label">你的題目</span>
+          <textarea id="askQuestion" class="field textarea" rows="3" placeholder="例如：Do you like travelling? 或：為什麼年輕人容易受到社群媒體影響？" required></textarea>
+        </label>
+      </div>
+
+      <label class="example-label">
+        <span class="field-label">你的個人例子／想法（選填）</span>
+        <textarea id="askExample" class="field textarea" rows="2" placeholder="例如：我喜歡下班後開車聽音樂；或直接寫你的中文想法"></textarea>
+      </label>
+
+      <div class="ai-actions">
+        <button id="askBtn" type="submit" class="primary">送出並產生回答</button>
+        <button id="clearAskBtn" type="button" class="secondary">清除</button>
+      </div>
+      <div id="askStatus" class="ask-status" aria-live="polite"></div>
+    </form>
+
+    <div id="aiResult" class="ai-result" hidden>
+      <div class="answer-label">AI ANSWER</div>
+      <div id="aiText" class="ai-text"></div>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div id="resultInfo">顯示全部題目</div>
+    <div class="actions">
+      <button id="expandAll" class="secondary">全部展開</button>
+      <button id="collapseAll" class="secondary">全部收合</button>
+    </div>
+  </div>
+
+  <main id="list"></main>
+  <div class="footer">IELTS Speaking Practice Bank · Offline standalone webpage</div>
+</div>
+
+<script>
+const data=[];
+const add=(part,topic,q,en,zh,key="")=>data.push({part,topic,q,en,zh,key});
+
+// Background
+add("Part 1","基本背景","Where are you from?","I'm from Sanchong in New Taipei City, Taiwan. It's close to Taipei, so it's very convenient for daily life.","我來自台灣新北市三重。它離台北很近，所以日常生活很方便。");
+add("Part 1","基本背景","Do you work or are you a student?","I just graduated from Yuan Ze University this year, and now I'm working at ITRI. So I'm quite new to working life.","我今年剛從元智大學畢業，現在在工研院工作，所以我才剛開始進入職場生活。");
+add("Part 1","基本背景","What kind of work do you do?","I studied Information Management, and now I work as an assistant engineer. I mainly work on software and system testing.","我讀資訊管理，現在是一名助理工程師，主要做軟體和系統測試相關工作。");
+
+// Work
+add("Part 1","Work","What do you like most about your work?","What I like most is my manager. He's really kind, so I don't feel scared to ask questions when I'm confused.","我最喜歡的是我的主管。他人很好，所以我不懂時不會害怕問問題。");
+add("Part 1","Work","Is your work usually busy?","It depends on the project. Near a deadline I can be pretty busy, but at the beginning things are usually more relaxed.","要看專案進度。接近截止日期時會比較忙，但剛開始通常比較輕鬆。");
+add("Part 1","Work","Is there anything you find difficult about your job?","Yes. Sometimes a system doesn't work during testing, and one small mistake in the logic can cause the whole thing to fail.","有。有時候系統測試不會通，而且邏輯裡一個小錯誤就可能讓整個系統失敗。");
+add("Part 1","Work","Would you like to do the same kind of work in the future?","Yes. I enjoy solving technical problems, so I'm preparing to apply for graduate school and improve my skills.","會。我喜歡解決技術問題，所以正在準備申請研究所，希望讓能力更強。");
+
+// Morning Routine
+add("Part 1","Morning Routine","What do you usually do in the morning?","On weekdays, I get ready, go to work, and usually grab something to drink on the way.","平日我準備好之後就去上班，路上通常會買個飲料。");
+add("Part 1","Morning Routine","Do you like getting up early?","Not at all. I really need enough sleep, or my brain just doesn't work properly.","完全不喜歡。我真的很需要睡眠，不然我的腦袋就無法正常運作。");
+add("Part 1","Morning Routine","Is breakfast important to you?","Not really. If I'm hungry, I'll eat something, but if I'm not, I'm fine waiting until lunch.","還好。如果餓了我就會吃，不餓的話等到午餐也沒問題。");
+add("Part 1","Morning Routine","Are your mornings different on weekends?","Definitely. On weekends, I usually sleep until I wake up naturally, and that's probably my favourite part of the weekend.","當然。週末我通常會睡到自然醒，這大概是我最喜歡週末的地方。");
+
+// Goals
+add("Part 1","Goals","Do you usually set goals for yourself?","It depends. I don't set goals for every little thing, but I give myself a clear target when something is really important.","看情況。我不會每件小事都設目標，但重要的事情我會給自己一個清楚的目標。");
+add("Part 1","Goals","Did you have many goals when you were a child?","Yes, quite a lot, but I didn't achieve many of them because my dreams changed really quickly.","有很多，但很多都沒有達成，因為小時候我的夢想改變得很快。");
+add("Part 1","Goals","Do you think it is important to have goals?","Yes, but a goal is only the first step. If you never take action, it's just a wish.","重要，但目標只是第一步。如果完全不行動，它就只是一個願望。");
+add("Part 1","Goals","Is there any goal you want to achieve soon?","Yes. My biggest goal right now is to get the IELTS score I need so I can apply for graduate schools in the US.","有。我現在最大的目標是拿到需要的 IELTS 成績，讓我可以申請美國研究所。");
+
+// Home
+add("Part 1","Home","Do you live in a house or an apartment?","I live in an apartment with my family. It's not very new, but it feels familiar and comfortable.","我和家人住在公寓。雖然不是很新，但對我來說很熟悉也很舒服。");
+add("Part 1","Home","What is your favourite room in your home?","Definitely my bedroom. I have my own desk there, so it's like my little world.","一定是我的房間。裡面有自己的書桌，就像我的小天地。");
+add("Part 1","Home","Is there anything you would like to change about your home?","I'd probably replace some of the old furniture because it would make the whole place feel fresher.","我可能會換掉一些老舊家具，讓整個家感覺更新一點。");
+add("Part 1","Home","Do you think you will live there for a long time?","Probably not. If I get a job in another city or country, I'll probably move out.","應該不會。如果以後去其他城市或國家工作，我可能就會搬出去。");
+
+// Friends
+add("Part 1","Friends","Do you often spend time with your friends?","Not as often as before. Everyone is busy with work or school now, but we still meet when we all have time.","不像以前那麼常。現在大家都忙工作或課業，但有空還是會見面。");
+add("Part 1","Friends","What do you usually do together?","We usually have a meal and talk about what's been happening in our lives.","我們通常一起吃飯，聊聊最近生活發生了什麼。");
+add("Part 1","Friends","Do you prefer having a few close friends or many friends?","I like both. Having many friends is nice, but I still need a few close friends I can really talk to.","兩種都喜歡。朋友多很好，但我還是需要幾個真正可以交心的朋友。");
+add("Part 1","Friends","Is it easy for you to make new friends?","Yes. Once I find something in common with someone, the conversation usually becomes quite easy.","算容易。只要找到彼此的共同點，聊天通常就會變得很自然。");
+
+// Plants
+add("Part 1","Plants","Do you like plants?","Not really. They look nice, but I don't enjoy taking care of them.","不太喜歡。植物看起來很好看，但我不喜歡照顧它們。");
+add("Part 1","Plants","Did you grow any plants when you were a child?","Yes. I grew a sweet potato for a school project and watched its roots grow in water.","有。我小時候因為學校作業養過地瓜，放在水裡觀察它長根。");
+add("Part 1","Plants","Do people in Taiwan often give plants as gifts?","Sometimes, but it really depends on the person. Some people like small plants, while others prefer food or flowers.","有時候會，但真的因人而異。有些人喜歡小盆栽，有些人比較喜歡食物或花。");
+add("Part 1","Plants","Do you think it is difficult to take care of plants?","Yes, at least for me. You need to remember water, fertilizer and sunlight, and I would probably forget something.","是，至少對我來說。要記得澆水、施肥和日照，我大概會忘記其中一樣。");
+
+// Hometown
+add("Part 1","Hometown","Where is your hometown?","My hometown is Sanchong in New Taipei City. It's quite close to Taipei and very convenient.","我的家鄉是新北市三重，離台北很近，也很方便。");
+add("Part 1","Hometown","What do you like most about your hometown?","Probably the local food. Some places I've eaten at since I was little give me a real feeling of home.","應該是在地美食。有些店我從小吃到大，所以會讓我有回到家的感覺。");
+add("Part 1","Hometown","Has your hometown changed much in recent years?","Not that much. Some shops and buildings have changed, but the general feeling is still pretty much the same.","沒有改變很多。雖然有些商店和建築變了，但整體感覺還是差不多。");
+add("Part 1","Hometown","Would you like to continue living there in the future?","Yes, if I get the chance. It's convenient and my family is there, but it depends on where I work.","如果有機會會。那裡很方便，家人也在，但還是要看我未來在哪工作。");
+
+// Music
+add("Part 1","Music","Do you often listen to music?","Yes, almost every day. Music is part of my daily routine, especially when I'm working or driving.","有，幾乎每天。音樂是我生活的一部分，尤其在工作或開車時。");
+add("Part 1","Music","What kind of music do you like?","I listen to K-pop, Chinese pop and English songs. The language doesn't matter as long as the song matches my mood.","我聽 K-pop、華語流行歌和英文歌。只要歌好聽、符合心情，語言不重要。");
+add("Part 1","Music","When do you usually listen to music?","Mostly when I'm working or driving. It makes boring tasks easier and helps me relax on the road.","主要在工作或開車時。音樂可以讓無聊的工作輕鬆一點，也讓我開車時放鬆。");
+add("Part 1","Music","Has your taste in music changed since you were younger?","Not really. I still like the same kinds of pop music, although I keep discovering new singers.","沒有太大改變。我還是喜歡差不多類型的流行音樂，只是會認識新的歌手。");
+
+// Public Transport
+add("Part 1","Public Transport","What kind of public transport do you usually use?","I probably use buses the most because there are many routes around where I live.","我最常搭公車，因為我住的地方附近有很多路線。");
+add("Part 1","Public Transport","Do you prefer public transport or travelling by car?","It depends on where I'm going. Public transport is easier in a crowded city, but driving is better for harder-to-reach places.","要看地方。在擁擠城市搭大眾運輸比較方便，但難到的地方自己開車比較好。");
+add("Part 1","Public Transport","Is public transport convenient where you live?","Yes. Taipei and New Taipei City have the MRT and lots of buses, so I can get to most places without driving.","很方便。雙北有捷運和很多公車，所以很多地方不用開車也能到。");
+add("Part 1","Public Transport","Do you think you will use public transport more often in the future?","Yes, if I live in a big city. Driving and parking there can be stressful, so public transport would be my first choice.","如果我住在大城市就會。開車和停車都很麻煩，所以大眾運輸會是我的第一選擇。");
+
+// Reading
+add("Part 1","Reading","Do you enjoy reading?","Yes. Reading is one of the easiest ways for me to relax and enter another world for a while.","喜歡。閱讀是我最容易放鬆的方式之一，可以讓我暫時進入另一個世界。");
+add("Part 1","Reading","What kind of things do you usually read?","I mainly read novels because I enjoy following a story and getting to know the characters.","我主要看小說，因為我喜歡跟著故事發展，慢慢認識角色。");
+add("Part 1","Reading","Did you read more when you were a child?","Yes. I had much more free time then, so I could spend hours reading without worrying about work.","有。小時候空閒時間比較多，可以看很久的書，不用擔心工作。");
+add("Part 1","Reading","Do you prefer reading printed books or reading online?","I like both. Printed books feel relaxing, while reading online is more convenient.","兩種都喜歡。實體書比較有放鬆感，線上閱讀則更方便。");
+
+// Shopping
+add("Part 1","Shopping","Do you enjoy shopping?","Yes, especially when I'm looking for something I really like. Even just looking around can be relaxing.","喜歡，尤其是買自己真的喜歡的東西。就算只是逛逛也會讓我放鬆。");
+add("Part 1","Shopping","What do you usually shop for?","Mostly clothes and cute plush toys. I probably don't need more of them, but cute things are hard to resist.","主要買衣服和可愛的娃娃。其實可能不需要更多，但可愛的東西很難抗拒。");
+add("Part 1","Shopping","Do you compare prices before buying something?","Yes, almost every time. If the same thing is cheaper somewhere else, I don't see a reason to pay more.","會，幾乎每次都會。如果同樣的東西別處更便宜，我覺得沒必要多花錢。");
+add("Part 1","Shopping","Has the way you shop changed in recent years?","Yes. I shop online much more now because it's faster and easier to compare products.","有。我現在更常網購，因為更快，而且比較商品也方便。");
+
+// Taking Photos
+add("Part 1","Taking Photos","Do you like taking photos?","It's okay. I don't take photos of everything, but I do take some when I want to remember a special moment.","還好。我不是什麼都拍，但想記住特別時刻時還是會拍。");
+add("Part 1","Taking Photos","What do you usually take photos of?","Mostly beautiful views and moments with my friends because I like looking back at those memories later.","主要拍風景和跟朋友相處的時刻，因為之後回頭看會想起那些回憶。");
+add("Part 1","Taking Photos","Do you prefer taking photos yourself or having someone take photos of you?","I don't really have a preference. It depends on the situation and who I'm with.","沒有特別偏好，要看當時的情況和跟誰在一起。");
+add("Part 1","Taking Photos","Do you think people take too many photos nowadays?","Not really. Photos are a simple way to record life, and one photo can bring a whole memory back years later.","我不覺得。照片是記錄生活很簡單的方式，而且多年後一張照片就可能把整段回憶帶回來。");
+
+// Memory
+add("Part 1","Memory","Are you good at remembering things?","It depends, but I'm quite okay at it. I remember important things, although small details sometimes disappear from my mind.","看情況，但還算可以。重要的事通常記得住，小細節有時候會忘。");
+add("Part 1","Memory","What kinds of things do you need to remember every day?","Mostly my to-do list, especially which tasks at work need to be finished first.","主要是待辦事項，尤其工作上哪些事情要先完成。");
+add("Part 1","Memory","Have you ever forgotten something important?","Yes. It usually happens when I have too many things on my mind, which is why I started writing things down.","有，通常是腦袋同時有太多事情時，所以我後來開始把事情記下來。");
+add("Part 1","Memory","What do you usually do to help yourself remember things?","I write things down on my phone. Once they're on a list, I don't need to keep them in my head.","我會記在手機裡。只要放進清單，就不用一直把事情放在腦袋裡。");
+
+// Cinema & Movies
+add("Part 1","Cinema & Movies","Do you enjoy watching films?","Yes. I like getting into a good story because it helps me forget about work and real life for a while.","喜歡。我喜歡沉浸在好故事裡，暫時忘記工作和現實生活。");
+add("Part 1","Cinema & Movies","How often do you go to the cinema?","Not very often, maybe once every six months. I usually go only for a film I really want to see on a big screen.","不常，大概半年一次。通常只有真的很想在大螢幕看某部片時才會去。");
+add("Part 1","Cinema & Movies","Do you prefer watching films at home or at the cinema?","I like both. Home is more comfortable, but the cinema gives me a stronger feeling because of the screen and sound.","兩種都喜歡。在家比較舒服，但電影院的大螢幕和音效比較有感覺。");
+add("Part 1","Cinema & Movies","Did you watch more films when you were younger?","Actually, no. I watched TV series much more because I liked following the same characters for a longer time.","其實沒有。我以前看電視劇比較多，因為喜歡長時間跟著同一群角色。");
+
+// Weekends
+add("Part 1","Weekends","What do you usually do at weekends?","Honestly, I usually do almost nothing. I stay home, watch videos, use my phone and just rest.","老實說，我週末通常幾乎什麼都不做，就是待在家看影片、滑手機和休息。");
+add("Part 1","Weekends","Are your weekends usually busy?","Not really. My weekdays are already busy enough, so I use weekends to recharge.","不太忙。平日已經夠忙，所以週末就是拿來充電。");
+add("Part 1","Weekends","Do you prefer to plan your weekends or decide what to do at the last minute?","It depends on whether I'm meeting friends. If I have plans with them, I arrange things earlier; otherwise I decide on the day.","要看有沒有跟朋友約。有約就提早安排，沒有的話通常當天再決定。");
+add("Part 1","Weekends","Are your weekends different now from when you were a child?","Yes. My dad used to take me cycling at weekends, but now I usually stay at home and rest.","是。小時候爸爸週末常帶我騎腳踏車，現在我通常都待在家休息。");
+
+// Weather
+add("Part 1","Weather","What's the weather usually like where you live?","It's quite humid in Taoyuan, and we get a lot of rainy days. Even when it's not raining, the air can still feel wet.","桃園滿潮濕，也常常下雨。有時候就算沒下雨，空氣還是濕濕的。");
+add("Part 1","Weather","What kind of weather do you like most?","I like sunny weather, but not strong sunshine. A bright day with a little wind is perfect for me.","我喜歡晴天，但不要大太陽。天氣明亮又有一點風最剛好。");
+add("Part 1","Weather","Does the weather affect your mood?","Yes. Sunny weather gives me more energy, while a dark rainy day can make me feel lazy and sleepy.","會。晴天會讓我更有精神，陰暗雨天則會讓我變懶、想睡。");
+add("Part 1","Weather","Do you usually check the weather forecast before going out?","Yes, almost every day. I mainly check whether it's going to rain because I don't want to forget my umbrella.","會，幾乎每天。我主要看會不會下雨，因為不想忘記帶傘。");
+
+// Social Media
+add("Part 1","Social Media","Do you often use social media?","Yes, pretty much every day, usually during a break or before going to bed.","會，幾乎每天，通常休息或睡前會看。");
+add("Part 1","Social Media","What do you usually use social media for?","Mostly to see what my friends are doing. Even if we don't meet often, I can still know what's happening in their lives.","主要看朋友的動態。就算不常見面，也可以知道他們最近的生活。");
+add("Part 1","Social Media","Did you use social media more when you were younger?","Actually, no. I didn't have that much time to use my phone when I was younger, so I probably use it more now.","其實沒有。以前沒有那麼多時間看手機，所以現在反而用得比較多。");
+add("Part 1","Social Media","Do you think you spend too much time on social media?","Not really. I use it often, but it doesn't seriously affect my work or daily life.","還好。我雖然滿常用，但沒有嚴重影響工作或日常生活。");
+
+// History
+add("Part 1","History","Did you enjoy learning history at school?","Yes. I liked hearing stories about how people lived in the past because it made history feel more real.","喜歡。我喜歡聽以前的人怎麼生活，這會讓歷史感覺更真實。");
+add("Part 1","History","What kind of historical topics are you interested in?","I'm interested in ancient Greek culture, especially Greek mythology and stories about gods and heroes.","我對古希臘文化很有興趣，尤其是希臘神話和神祇、英雄的故事。");
+add("Part 1","History","Do you think history is important?","Yes. History helps us understand why the world looks the way it does today.","重要。歷史可以幫我們理解為什麼現在的世界會變成這個樣子。");
+add("Part 1","History","How do you usually learn about history?","Mostly from teachers. I understand history better when someone explains the background like a story instead of giving me only dates.","主要是老師教。我比較喜歡老師像說故事一樣解釋背景，而不是只給一堆日期。");
+
+// Staying at Home
+add("Part 1","Staying at Home","Do you like spending time at home?","Yes, definitely. Home is where I can completely relax and stop thinking about work for a while.","很喜歡。家是我可以完全放鬆、暫時不想工作的地方。");
+add("Part 1","Staying at Home","What do you usually do when you stay at home?","Honestly, I usually do almost nothing. I watch TV, scroll through my phone or just lie on the sofa.","老實說，我通常就在家耍廢，看電視、滑手機或躺在沙發上。");
+add("Part 1","Staying at Home","Which room do you spend the most time in?","Probably the living room. I often watch TV with my mom there, so it's also our family time.","應該是客廳。我常跟媽媽一起看電視，那也是我們相處的時間。");
+add("Part 1","Staying at Home","Do you think you spend more time at home now than when you were younger?","Yes. I used to go out with friends a lot at weekends, but now I'm happier staying home and resting.","是。以前週末常跟朋友出去，現在反而比較喜歡待在家休息。");
+
+// Sports
+add("Part 1","Sports","Do you like watching sports?","Yes. I especially enjoy close games because the result keeps me interested until the end.","喜歡。我特別喜歡比分很接近的比賽，因為會讓我一直看到最後。");
+add("Part 1","Sports","What sports are popular in your country?","Baseball is one of the most popular sports in Taiwan. People sometimes even call it our national sport.","棒球是台灣最受歡迎的運動之一，有時大家甚至會稱它為國球。");
+add("Part 1","Sports","Did you play any sports when you were a child?","Yes. I used to ride my bike a lot, especially at weekends when my dad sometimes took me cycling.","有。我小時候滿常騎腳踏車，尤其週末爸爸有時候會帶我去騎。");
+add("Part 1","Sports","Would you like to try a new sport in the future?","Yes, I'd like to try golf. It looks relaxing, but it also seems to need a lot of control and focus.","會，我想試高爾夫。它看起來很放鬆，但好像也很需要控制力和專注。");
+
+// Punctuality
+add("Part 1","Punctuality","Is it important for you to be on time?","Yes, very important. Being on time is a simple way to show respect for other people's time.","很重要。準時是一種對別人時間很簡單的尊重。");
+add("Part 1","Punctuality","Are you usually on time for appointments?","Yes, most of the time. I'd rather wait for someone than make them wait for me.","是，大部分時候都會。我寧願自己等別人，也不想讓別人等我。");
+add("Part 1","Punctuality","Have you ever been late for something important?","Yes. I was late once because I didn't leave enough time for traffic, so now I give myself more extra time.","有。有一次因為沒多留交通時間而遲到，所以現在重要約會前會多留時間。");
+add("Part 1","Punctuality","Do you think young people care about being punctual?","Maybe not as much as older people. Some young people have more casual plans, although it still depends on the person.","可能不像年長的人那麼在意。有些年輕人的約比較隨性，不過還是因人而異。");
+
+// Sleep
+add("Part 1","Sleep","How many hours do you usually sleep at night?","On weekdays, I usually get around six hours. At weekends, I normally sleep longer if I don't have plans.","平日大概睡六小時。週末如果沒安排，通常會睡比較久。");
+add("Part 1","Sleep","Do you think you get enough sleep?","No, definitely not. Six hours isn't enough for me, so I sometimes need time for my brain to wake up in the morning.","沒有，六小時對我來說不夠，所以早上常需要一點時間讓腦袋開機。");
+add("Part 1","Sleep","Do you ever take a nap during the day?","Yes. On workdays, I usually take a short nap during my lunch break.","會。上班日我通常會利用午休小睡一下。");
+add("Part 1","Sleep","What do you usually do when you cannot sleep?","I usually use my phone, although I know it's probably not a good idea.","我通常會滑手機，雖然我知道這大概不是什麼好方法。");
+
+// Concentration
+add("Part 1","Concentration","Is it easy for you to concentrate?","It depends. If I'm interested in something, I can focus for a long time, but boring tasks distract me quickly.","看情況。有興趣的事情可以專心很久，但無聊的事情很快就會分心。");
+add("Part 1","Concentration","When do you need to concentrate the most?","Probably when I'm working or taking an exam because one small mistake can completely change the result.","應該是工作或考試時，因為一個小錯誤就可能完全改變結果。");
+add("Part 1","Concentration","What usually distracts you?","Definitely my phone. Sometimes I only want to check one message and somehow lose ten minutes.","絕對是手機。有時候只想看一則訊息，結果莫名其妙就花掉十分鐘。");
+add("Part 1","Concentration","Is it easier for you to concentrate in a quiet place?","Actually, I prefer a little background noise. A café or somewhere with soft music works better for me than complete silence.","其實我比較喜歡有一點背景聲音。咖啡廳或有輕音樂的地方比完全安靜更適合我。");
+
+// Science
+add("Part 1","Science","Did you enjoy learning science at school?","Not really. I found some science subjects difficult, especially when there were lots of formulas to remember.","沒有很喜歡。我覺得有些科學科目很難，尤其有很多公式要記。");
+add("Part 1","Science","Which area of science interests you the most?","I'm most interested in technology-related science and how new ideas become things people actually use.","我最有興趣的是科技相關科學，尤其是新想法怎麼變成大家真的會使用的東西。");
+add("Part 1","Science","Do you often read or watch news about science?","Not really. I don't actively follow science news, but I might read something about new technology if I see it online.","不太會主動追科學新聞，但如果線上看到有趣的新科技消息可能會看。");
+add("Part 1","Science","Do you think science is important in everyday life?","Yes. Science is behind many things we use every day, from phones to medicine and transport.","重要。從手機到醫療和交通，很多每天使用的東西背後都有科學。");
+
+// Part 2
+add("Part 2","Future Goal","Describe a goal that you would like to achieve in the future.","One goal that is really important to me is getting the IELTS score I need. I first had this goal when I decided to apply for a good graduate school in the US. To achieve it, I practise speaking, writing, listening and reading almost every day. Sometimes I'm tired or my practice score is not good, but I keep going because one bad day doesn't decide the final result. For me, IELTS is like a key. It can open the door to better graduate schools and give me more choices in my future.","我很重要的一個目標是拿到需要的 IELTS 成績，因為我想申請美國好的研究所。為了達成它，我幾乎每天練口說、寫作、聽力和閱讀。有時候很累、成績也不理想，但我知道一天的表現不會決定最後結果。對我來說，IELTS 像一把鑰匙，可以讓我有更多研究所與未來的選擇。");
+add("Part 2","Helping Someone","Describe a time when you helped someone.","I'd like to talk about helping my niece with her maths homework. She couldn't understand some questions, so I explained them step by step. The funny thing was that she kept asking why instead of just wanting the answer. When she finally solved the question by herself, she looked really happy. While teaching her, I suddenly remembered studying maths in junior high school, and I felt surprisingly young and happy. I thought I was helping her, but she also gave me a warm memory.","我想分享一次教姪女寫數學作業的經驗。她一直問我為什麼，所以我一步一步解釋，而不是直接給答案。當她終於自己算出來時非常開心。教她的過程也讓我想起自己國中念數學的時候，突然覺得很年輕、很幸福。我本來以為是我在幫她，但最後她也帶給我一個溫暖的回憶。");
+add("Part 2","Person I Admire","Describe a person you admire.","The person I really admire is Ashin, the lead singer of Mayday. I first knew him through Mayday's music. As I got older, I started paying more attention to the meaning behind the lyrics. Many of his songs talk about dreams, difficult times and not giving up. Whenever I'm tired or things aren't going well, his music gives me a little more strength. I don't admire him only because he's a successful singer. I admire the hope and courage his music gives people.","我很欣賞的人是五月天主唱阿信。我從五月天的音樂認識他，長大後開始更注意歌詞的意義。很多歌都談夢想、困難和不要放棄。當我很累或事情不順時，他的音樂會給我力量。我欣賞的不只是他是一名成功歌手，而是他的音樂帶給人的希望和勇氣。");
+add("Part 2","Useful Skill","Describe a useful skill you learned from another person.","A very useful skill I learned from my dad is how to deal with people. He taught me not to react too quickly when I disagree with someone. Instead, I should first understand why the other person thinks that way and then decide how to respond. This has been useful at work because I can listen first and explain my own view calmly. Understanding someone doesn't mean agreeing with them, but it helps avoid unnecessary conflict.","我從爸爸身上學到很實用的能力，就是怎麼和人相處。他教我不同意別人時不要太快反應，而是先理解對方為什麼這樣想，再決定怎麼回應。這在工作中很實用，因為我可以先聽，再冷靜表達自己的觀點。理解別人不代表一定要認同，但可以避免很多不必要的衝突。");
+add("Part 2","Positive Change","Describe a change that had a positive effect on your life.","A change that had a positive effect on my life was starting an internship at ITRI. I wanted real work experience, and the biggest surprise was meeting a very patient supervisor. When I had trouble with a program or system test, he didn't just give me the answer; he guided me step by step. That made me more confident and helped me understand that mistakes are part of learning. The internship also showed me that I enjoy solving technical problems and made my future career direction much clearer.","對我人生很正面的改變，是去工研院實習。我想獲得真實工作經驗，而最大的驚喜是遇到很有耐心的主管。當程式或系統測試出問題時，他不直接給答案，而是一步一步引導我。這讓我更有自信，也理解犯錯是學習的一部分。實習還讓我發現自己喜歡解決技術問題，未來方向也更清楚。");
+add("Part 2","Advice","Describe a piece of advice that someone gave you.","One piece of advice that has stayed with me came from my dad. He told me to be tactful and stay humble. I don't always need to prove that I'm right or show everyone what I can do. He taught me that being right is only one part of communication; how and when I say something also matters. At work, this helps me listen first and explain my own idea more calmly. I don't need to be the loudest person in the room to show my ability.","有一個我一直記著的建議來自爸爸：做人要圓融、保持謙虛。我不需要一直證明自己是對的，也不用一直展示能力。他讓我知道，溝通不只是內容正不正確，什麼時候說、怎麼說也很重要。在工作中，我會先聽再冷靜表達自己的想法。我不需要成為房間裡最搶眼的人才能證明自己。");
+add("Part 2","Place to Revisit","Describe a place you visited that you would like to go back to.","I'd really like to return to Rhode Island in the United States, where I stayed during a university summer exchange. I went to classes, met different people, explored the local area and experienced normal daily life. What I liked most was the culture and the feeling of being somewhere completely new. It showed me that there isn't only one way to live. I'd like to go back again as an older person and experience that feeling with more life experience.","我很想再回美國羅德島，那是我大學暑期交換待過的地方。我上課、認識不同的人、逛當地，也體驗真正的日常生活。我最喜歡的是當地文化和身處完全陌生環境的感覺。那次經驗讓我發現人生不只有一種生活方式。我想以現在更成熟的自己再回去感受一次。");
+add("Part 2","Technology Problem","Describe a time when you had a problem with technology.","I once used a generative AI tool to help me solve a programming problem. Its answer looked very convincing and even included code, but the system still didn't work. I realised I had trusted it too quickly, so I went back and checked the program step by step. Eventually I found that the AI had made a wrong assumption. The experience taught me that AI can help me think, but it shouldn't think for me. Now I treat its answers as suggestions and always check the logic myself.","有一次我用生成式 AI 幫忙解程式問題。它的答案看起來非常合理，甚至給了程式碼，但系統還是不能運作。我才發現自己太快相信它，所以回頭一步一步檢查，最後發現 AI 做了一個錯誤假設。這讓我學到 AI 可以幫助思考，但不能取代我思考。現在我會把 AI 答案當建議，再自己檢查邏輯。");
+
+// Part 3 Goals
+add("Part 3","Goals / Success / Young People","Why is it important for people to have goals?","Goals give people direction. When you know what you're working towards, even a small action feels meaningful, so you have a reason to keep moving.","目標會給人方向。知道自己朝什麼前進後，小行動也會變得有意義，因此更有理由繼續努力。");
+add("Part 3","Goals / Success / Young People","What kinds of goals do young people usually have?","Young people often have big dreams, such as studying abroad, getting a great job or starting a business, because they are still exploring what is possible.","年輕人常有比較大的夢想，例如出國、好工作或創業，因為他們還在探索什麼事情是可能的。");
+add("Part 3","Goals / Success / Young People","Why are some people more ambitious than others?","Confidence plays a big role. If people don't see failure as the end, they're more willing to aim higher and try difficult things.","自信很重要。如果一個人不把失敗看成終點，就比較敢設定更高的目標、嘗試困難的事。");
+add("Part 3","Goals / Success / Young People","Do you think parents should set goals for their children?","Generally, no. People work harder for something they truly want. Parents can guide children, but they shouldn't decide everything for them.","一般來說不應該。人會為自己真正想要的東西更加努力。父母可以引導，但不應該替孩子決定一切。");
+add("Part 3","Goals / Success / Young People","Is hard work always necessary for success?","Hard work matters, but it's only half of the picture. People also need the right direction, because working harder with the wrong method may not create much progress.","努力很重要，但只佔一部分。還需要正確方向，因為用錯方法再努力也可能沒有太大進步。");
+add("Part 3","Goals / Success / Young People","Do people's goals change as they get older?","Definitely. People's priorities change with age. Young people may focus on dreams, while older people may care more about stability, family or health.","會。人的優先順序會隨年齡改變。年輕時可能重視夢想，年長後可能更在意穩定、家庭或健康。");
+add("Part 3","Goals / Success / Young People","Do you think money is a good way to measure success?","It depends. For me, money is part of success because it gives freedom and choices, but other people may value power, family time or something else.","看人。對我來說金錢是成功的一部分，因為它帶來自由和選擇，但別人可能更在意權力、家庭時間或其他東西。");
+add("Part 3","Goals / Success / Young People","Do you think young people will have more pressure to succeed in the future?","Yes. Technology makes comparison almost impossible to avoid, and rising living costs can make young people feel even more pressure to succeed.","會。科技讓比較幾乎無法避免，再加上生活成本上升，年輕人可能會承受更大的成功壓力。");
+
+// Helping
+add("Part 3","Helping Others & Society","Why are some people more willing to help others than other people are?","Some people enjoy the feeling of being useful. Seeing that their help made a difference gives them a sense of achievement.","有些人喜歡自己有幫上忙的感覺。看到自己的行動真的帶來改變，會讓他們有成就感。");
+add("Part 3","Helping Others & Society","Do you think people nowadays are less willing to help strangers than in the past?","People may be more careful today. It's not always selfishness; some worry that helping a stranger could bring trouble or blame.","現在的人可能更小心。不一定是自私，而是有些人擔心幫陌生人反而惹上麻煩或被怪罪。");
+add("Part 3","Helping Others & Society","Should parents teach children to help other people?","Yes, but children also need boundaries. Being kind doesn't mean saying yes to everything; they should learn whether a situation is safe and reasonable.","應該，但也要教界線。善良不代表什麼都答應，孩子需要判斷情況是否安全、合理。");
+add("Part 3","Helping Others & Society","What can schools do to encourage children to help others?","Schools can give children small daily chances to help, such as cleaning together or helping classmates. Helping can slowly become a habit.","學校可以給孩子日常的小機會去幫助別人，例如一起整理教室或幫同學，讓幫助別人慢慢變成習慣。");
+add("Part 3","Helping Others & Society","Do you think people should always expect something in return when they help someone?","No. If you always expect something back, helping can become a business deal, and you may feel disappointed when people don't respond as expected.","不應該。如果每次都期待回報，幫忙就像交易，而且別人沒有照預期回應時自己反而會失望。");
+add("Part 3","Helping Others & Society","Is helping someone online different from helping someone face to face?","The basic idea is the same: you're using time or knowledge to solve someone's problem. The difference is simply what kind of help they need.","本質是一樣的，都是用自己的時間或知識解決別人的問題，差別只是需要的幫助類型不同。");
+add("Part 3","Helping Others & Society","Should governments encourage people to do volunteer work?","Yes. Governments can't solve every small social problem alone, so volunteers can fill some of those gaps and improve communities.","應該。政府不可能自己解決所有小問題，志工可以補上部分缺口，讓社區變得更好。");
+add("Part 3","Helping Others & Society","Do you think technology will make it easier for people to help each other in the future?","Definitely. Technology removes distance, so people can donate, share information or teach others even when they are far apart.","會。科技降低距離限制，即使相隔很遠，也可以捐款、分享資訊或在線上教別人。");
+
+// Role models
+add("Part 3","Role Models / Success / Young People","Why do people need someone to look up to?","Role models give people a clearer direction. Seeing someone achieve a similar goal makes that goal feel more possible.","榜樣會給人更清楚的方向。看到有人已經完成類似目標，就會覺得自己的目標也更有可能實現。");
+add("Part 3","Role Models / Success / Young People","Who has a greater influence on children, parents or famous people?","Both matter in different ways. Parents usually shape basic values, while celebrities may influence children's dreams and interests.","兩者影響方式不同。父母通常塑造基本價值觀，名人則比較容易影響夢想和興趣。");
+add("Part 3","Role Models / Success / Young People","Why do many young people admire celebrities?","Celebrities often represent the kind of life young people want. Sometimes young people admire the lifestyle more than the person.","名人常代表年輕人想要的生活。有時候他們崇拜的是那種生活，而不一定是那個人本身。");
+add("Part 3","Role Models / Success / Young People","Do you think famous people have a responsibility to be good role models?","To some extent, yes. They don't need to be perfect, but they should understand that their behaviour can influence many young people.","某種程度上有。他們不需要完美，但應該知道自己的行為可能影響很多年輕人。");
+add("Part 3","Role Models / Success / Young People","Is being successful the same as being famous?","Definitely not. Fame means many people know who you are, while success means achieving something you truly value.","當然不是。有名只是很多人知道你是誰；成功是完成自己真正重視的事情。");
+add("Part 3","Role Models / Success / Young People","Why do some people keep trying even after they fail many times?","They don't see failure as the end. They treat it as information that tells them to try a different way.","因為他們不把失敗看成終點，而是把它當成提醒自己換一個方法的資訊。");
+add("Part 3","Role Models / Success / Young People","Do you think society gives people enough chances to change after making mistakes?","Not always. One mistake can become a negative label, and people may keep judging someone even after that person has genuinely changed.","不一定。有時候一次錯誤就會變成負面標籤，即使真的改變了，別人還是可能一直用過去評斷他。");
+add("Part 3","Role Models / Success / Young People","Has social media changed the way people choose their role models?","Yes. People now see famous people's daily lives, opinions and personalities, not only their work, so they may feel more connected to them.","有。現在大家不只看到名人的作品，也會看到日常、想法和個性，因此更容易產生連結感。");
+
+// Skills
+add("Part 3","Skills / Learning / Education","What kinds of skills are important for young people to learn today?","Young people need responsibility, humility and a willingness to improve. Skills help you start, but attitude helps you grow.","年輕人需要負責、謙虛和願意進步。能力可以幫你開始，但態度才能幫你成長。");
+add("Part 3","Skills / Learning / Education","Do people learn practical skills better from other people or from the Internet?","Both can work well. The Internet gives a huge amount of information, while people can give immediate feedback.","兩種都很好。網路提供大量資訊，真人則可以馬上給回饋。");
+add("Part 3","Skills / Learning / Education","Why are some people better at learning new skills than others?","Some people understand new ideas faster and connect new information with things they already know, which makes learning easier.","有些人理解新概念比較快，也比較會把新資訊和原本知道的東西連接起來，因此學得更容易。");
+add("Part 3","Skills / Learning / Education","Should schools spend more time teaching practical skills?","Yes. Students need to know how to use knowledge in real life, such as basic money management or communication.","應該。學生需要知道怎麼把知識用在真實生活，例如基本理財或溝通能力。");
+add("Part 3","Skills / Learning / Education","Do you think parents should teach their children the skills they know?","Yes, if the children are interested. Parents can pass on years of experience and help children avoid unnecessary mistakes.","應該，如果孩子有興趣。父母可以把多年經驗傳下去，幫孩子少犯一些沒必要的錯。");
+add("Part 3","Skills / Learning / Education","Is it more difficult for older people to learn new skills? Why?","Not necessarily. Young people may learn faster, while older people can use life experience to understand things differently. Different speed doesn't mean lower ability.","不一定。年輕人可能學得快，年長者則可以利用人生經驗理解事情。速度不同不代表能力比較差。");
+add("Part 3","Skills / Learning / Education","Has technology made people more willing to learn new things?","Yes. Technology makes the first step easier because people can find videos and information instantly instead of searching for a teacher or book first.","有。科技讓開始學習變得更簡單，現在可以直接找到影片和資訊，不一定先找老師或書。");
+add("Part 3","Skills / Learning / Education","What skills do you think will become more important in the future?","Knowing how to use AI wisely will be important. People need to know what to ask and how to judge whether an AI answer is reliable.","懂得聰明使用 AI 會很重要。人需要知道該問什麼，也要判斷 AI 的答案是否可靠。");
+
+// Change
+add("Part 3","Change / Habits / Society","Why are some people afraid of making changes in their lives?","The biggest reason is fear of failure. People don't always fear change itself; they fear what could go wrong after the change.","最大的原因是害怕失敗。人有時不是怕改變本身，而是怕改變後可能發生的壞事。");
+add("Part 3","Change / Habits / Society","Do young people find it easier to accept change than older people?","Generally, yes. Young people usually have fewer fixed habits, while older people may have lived the same way for many years.","一般來說是。年輕人的固定習慣比較少，而年長者可能已經用同一種方式生活很多年。");
+add("Part 3","Change / Habits / Society","What kinds of changes do people usually make when they start a new job?","The biggest change is usually their daily routine. They may wake earlier, manage time differently and build a new lifestyle around work.","最大的改變通常是生活作息，需要更早起、重新安排時間，並建立一個以工作為中心的新生活方式。");
+add("Part 3","Change / Habits / Society","Do you think people need to leave their comfort zone in order to improve themselves?","Yes, but only to a reasonable degree. Growth happens when something is challenging but still manageable.","需要，但要適度。真正的成長通常發生在事情有挑戰性、但仍然可以處理的時候。");
+add("Part 3","Change / Habits / Society","Can a small change in someone's daily habits have a big effect on their life?","Definitely. A small action repeated every day builds up over time and can create a big result.","可以。一個很小的行動每天重複，效果會慢慢累積，最後產生很大的結果。");
+add("Part 3","Change / Habits / Society","How has technology changed people's lifestyles in recent years?","Technology has made life more convenient, but it can also reduce natural face-to-face interaction because so many things can now be done online.","科技讓生活更方便，但因為很多事情都能在線上完成，也可能減少自然的面對面互動。");
+add("Part 3","Change / Habits / Society","Should people always try to adapt when society changes?","People need to adapt, but not blindly. Adapting doesn't mean losing yourself or giving up your basic values.","人需要適應，但不能盲目。適應不代表失去自己，也不代表放棄基本原則。");
+add("Part 3","Change / Habits / Society","What major changes do you think people's lives will experience in the future?","Technology and modernisation will keep changing cities, but some old buildings and historic places may disappear. Progress can give us something new, but also take something old away.","科技和現代化會持續改變城市，但一些老建築和歷史場所可能消失。進步帶來新的東西，也可能帶走一些舊的東西。");
+
+// Advice
+add("Part 3","Advice / Decisions / Generations","Why do people sometimes need advice from others?","Sometimes we are too close to a problem to see it clearly. An outsider may notice something we've missed.","有時候我們離自己的問題太近，反而看不清楚。旁觀者可能會注意到我們漏掉的地方。");
+add("Part 3","Advice / Decisions / Generations","Who should young people listen to more, their parents or their friends?","It depends. Parents usually have more life experience, while friends may understand the young person's current situation better.","要看情況。父母通常有人生經驗，朋友則可能更理解年輕人現在正在經歷的事情。");
+add("Part 3","Advice / Decisions / Generations","Why do some people find it difficult to accept advice?","Advice can feel like being told you're wrong. Pride can make people reject a useful suggestion before they truly think about it.","接受建議有時候像承認自己錯了。自尊心可能讓人還沒真正思考就先拒絕有用的建議。");
+add("Part 3","Advice / Decisions / Generations","Do older people always give better advice because they have more life experience?","Often, but not always. Experience is useful, but society changes, so an idea that worked thirty years ago may not work today.","很多時候有幫助，但不是永遠。經驗很有價值，但社會會改變，三十年前的方法現在未必適用。");
+add("Part 3","Advice / Decisions / Generations","Should parents allow children to make their own decisions, even if they may make mistakes?","Yes, as long as the mistake isn't dangerous. Small mistakes teach children how to deal with the results of their own choices.","應該，只要錯誤不會造成危險。小錯誤可以教孩子學會承擔自己選擇的結果。");
+add("Part 3","Advice / Decisions / Generations","Has the Internet changed the way people look for advice?","Yes. People can get hundreds of opinions very quickly, but the real skill is knowing which information to trust.","有。現在可以很快得到大量意見，但真正重要的能力是判斷哪些資訊值得相信。");
+add("Part 3","Advice / Decisions / Generations","What are the problems with getting too much advice from different people?","The biggest problem is confusion. Different people may give opposite advice, so too many opinions can make a decision even harder.","最大的問題是混亂。不同的人可能給完全相反的建議，太多意見反而讓決定更困難。");
+add("Part 3","Advice / Decisions / Generations","Do you think people will depend more on AI for advice in the future?","Yes. AI is available almost anytime and answers quickly, but people still need to make the final decision themselves.","會。AI 幾乎隨時都能使用，而且回答很快，但最後的決定還是應該由自己做。");
+
+// Travel
+add("Part 3","Travel","Why do people like visiting the same place more than once?","Good memories are a major reason. Sometimes people aren't only returning to a place; they're returning to a memory.","美好的回憶是主要原因。有時候人不是只回到一個地方，而是回到一段回憶。");
+add("Part 3","Travel","Why do some people prefer travelling abroad while others prefer travelling in their own country?","It depends on what people want. Travelling abroad offers novelty and new cultures, while domestic travel offers comfort and convenience.","要看人想得到什麼。出國有新鮮感和不同文化，國內旅遊則比較舒服方便。");
+add("Part 3","Travel","Do young and older people usually choose different kinds of places to visit?","Generally, yes. Young people may prefer more activities, while older people may care more about comfort, safety and a slower schedule.","一般來說是。年輕人可能偏好活動多的地方，年長者則更重視舒適、安全和慢一點的行程。");
+add("Part 3","Travel","How can travelling to another country change the way people think?","Travelling shows that different cultures can do the same thing in different ways. People realise that different doesn't always mean wrong.","旅行會讓人看到不同文化可以用不同方式做同一件事，也會發現「不同」不代表「錯」。");
+add("Part 3","Travel","What problems can too many tourists bring to a popular place?","Too many tourists can create more rubbish and pressure on public spaces, slowly damaging the place people came to enjoy.","太多遊客會增加垃圾和公共空間壓力，甚至慢慢破壞大家原本想來欣賞的地方。");
+add("Part 3","Travel","Do you think governments should limit the number of tourists in some places?","Yes, but only in fragile historic or natural areas. Limits should depend on how much pressure a place can handle.","可以，但主要是脆弱的歷史或自然景點。是否限制應該看那個地方能承受多少壓力。");
+add("Part 3","Travel","Has social media changed the way people choose their travel destinations?","Yes. A beautiful photo or video can immediately make people curious and create the desire to visit a place.","有。一張漂亮的照片或影片就可能立刻讓人產生好奇，甚至直接想去那個地方。");
+add("Part 3","Travel","Do you think people will travel more or less in the future?","Probably more. Booking flights, hotels and transport is becoming easier, so the effort needed to plan a trip is lower.","可能更多。現在訂機票、飯店和交通都更容易，所以規劃旅行需要的力氣更少。");
+
+// Technology
+add("Part 3","Technology / Problems / Society","Why do people depend so much on technology nowadays?","Convenience is the main reason. Technology is fast and often accurate, and once people get used to that speed, it's hard to go back.","最主要是方便。科技快而且通常很準確，人習慣這種速度後就很難回去。");
+add("Part 3","Technology / Problems / Society","What kinds of technological problems do people commonly experience?","People often know how to use technology but not how to fix it. A complicated system may show an error without making the real cause clear.","人通常知道怎麼使用科技，但不一定知道怎麼修。複雜系統可能只顯示錯誤，卻看不出真正原因。");
+add("Part 3","Technology / Problems / Society","Are younger people better at solving technological problems than older people?","Not necessarily. Younger people may be more familiar with devices, but familiarity isn't the same as deep understanding or problem-solving ability.","不一定。年輕人可能比較熟悉設備，但熟悉不等於深入理解或真的有解決問題的能力。");
+add("Part 3","Technology / Problems / Society","Do you think people rely too much on technology to solve problems?","Sometimes, yes. If people ask technology to solve every problem, they may slowly stop thinking for themselves.","有時候是。如果什麼問題都交給科技解決，人可能會慢慢減少自己思考。");
+add("Part 3","Technology / Problems / Society","Should schools teach children how to deal with basic technological problems?","Yes. Children shouldn't only learn how to use technology; they should also know what to do when something goes wrong.","應該。孩子不應該只學怎麼使用科技，也要知道出問題時可以怎麼處理。");
+add("Part 3","Technology / Problems / Society","What problems can happen when important services depend completely on technology?","If nobody understands the system deeply, one technical failure can stop an important service and leave people unsure how to fix it quickly.","如果沒有人真正理解系統，一個技術故障就可能讓重要服務停擺，而且大家不知道怎麼快速修好。");
+add("Part 3","Technology / Problems / Society","Do you think new technology always makes people's lives easier?","Most of the time, but not always. A system that is too complicated can create more problems than it solves.","大部分時候是，但不是永遠。太複雜的系統反而可能製造比解決更多的問題。");
+add("Part 3","Technology / Problems / Society","What kinds of technological problems might people face in the future?","One major problem could be losing independent thinking. If AI answers everything, people may slowly become less confident in their own judgement.","其中一個大問題可能是失去獨立思考。如果 AI 什麼都回答，人可能慢慢越來越不相信自己的判斷。");
+
+const list=document.getElementById("list");
+const search=document.getElementById("search");
+const tabs=[...document.querySelectorAll(".tab")];
+const resultInfo=document.getElementById("resultInfo");
+const totalBadge=document.getElementById("totalBadge");
+let activePart="all";
+
+function esc(s){
+  return String(s).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;");
+}
+function filtered(){
+  const term=search.value.trim().toLowerCase();
+  return data.filter(x=>{
+    const p=activePart==="all"||x.part===activePart;
+    const t=!term||(`${x.part} ${x.topic} ${x.q} ${x.en} ${x.zh}`).toLowerCase().includes(term);
+    return p&&t;
+  });
+}
+function render(){
+  const rows=filtered();
+  totalBadge.textContent=`${data.length} questions`;
+  resultInfo.textContent=`目前顯示 ${rows.length} / ${data.length} 題`;
+  if(!rows.length){
+    list.innerHTML='<div class="empty">找不到符合的題目，換個關鍵字試試看。</div>';
+    return;
+  }
+  const groups=new Map();
+  rows.forEach(x=>{
+    const key=`${x.part}｜${x.topic}`;
+    if(!groups.has(key))groups.set(key,[]);
+    groups.get(key).push(x);
+  });
+  list.innerHTML=[...groups.entries()].map(([key,items])=>`
+    <section class="group">
+      <div class="group-head"><h2>${esc(key)}</h2><span class="count">${items.length} 題</span></div>
+      ${items.map(x=>`
+        <details>
+          <summary><span>${esc(x.q)}</span><span class="chev">⌄</span></summary>
+          <div class="answer">
+            <div class="answer-label">ENGLISH</div>
+            <p>${esc(x.en)}</p>
+            <div class="answer-label">中文翻譯</div>
+            <p>${esc(x.zh)}</p>
+          </div>
+        </details>`).join("")}
+    </section>`).join("");
+}
+tabs.forEach(btn=>btn.addEventListener("click",()=>{
+  activePart=btn.dataset.part;
+  tabs.forEach(b=>b.classList.toggle("active",b===btn));
+  render();
+}));
+search.addEventListener("input",render);
+document.getElementById("expandAll").addEventListener("click",()=>document.querySelectorAll("#list details").forEach(d=>d.open=true));
+document.getElementById("collapseAll").addEventListener("click",()=>document.querySelectorAll("#list details").forEach(d=>d.open=false));
+
+const randomBox=document.getElementById("randomBox");
+const randomMeta=document.getElementById("randomMeta");
+const randomQ=document.getElementById("randomQ");
+const randomAnswer=document.getElementById("randomAnswer");
+const randomEn=document.getElementById("randomEn");
+const randomZh=document.getElementById("randomZh");
+const revealBtn=document.getElementById("revealBtn");
+function pickRandom(){
+  const pool=filtered();
+  if(!pool.length)return;
+  const x=pool[Math.floor(Math.random()*pool.length)];
+  randomMeta.textContent=`${x.part} · ${x.topic}`;
+  randomQ.textContent=x.q;
+  randomEn.textContent=x.en;
+  randomZh.textContent=x.zh;
+  randomAnswer.classList.remove("show");
+  revealBtn.textContent="顯示答案";
+  randomBox.classList.add("show");
+  randomBox.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+document.getElementById("randomBtn").addEventListener("click",pickRandom);
+document.getElementById("nextBtn").addEventListener("click",pickRandom);
+revealBtn.addEventListener("click",()=>{
+  const show=!randomAnswer.classList.contains("show");
+  randomAnswer.classList.toggle("show",show);
+  revealBtn.textContent=show?"隱藏答案":"顯示答案";
+});
+
+const askForm=document.getElementById("askForm");
+const askPart=document.getElementById("askPart");
+const askQuestion=document.getElementById("askQuestion");
+const askExample=document.getElementById("askExample");
+const askBtn=document.getElementById("askBtn");
+const askStatus=document.getElementById("askStatus");
+const aiResult=document.getElementById("aiResult");
+const aiText=document.getElementById("aiText");
+
+askForm.addEventListener("submit", async (e)=>{
+  e.preventDefault();
+  const question=askQuestion.value.trim();
+  if(!question){
+    askStatus.textContent="請先輸入口說題目。";
+    askQuestion.focus();
+    return;
+  }
+
+  askBtn.disabled=true;
+  askBtn.textContent="回答中…";
+  askStatus.textContent="正在依照你的 IELTS 回答規則產生答案…";
+  aiResult.hidden=true;
+
+  try{
+    const res=await fetch("/api/ask",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({
+        part:askPart.value,
+        question,
+        example:askExample.value.trim()
+      })
+    });
+
+    const body=await res.json().catch(()=>({}));
+    if(!res.ok){
+      throw new Error(body.error || "伺服器回應失敗");
+    }
+
+    aiText.textContent=body.answer || "沒有取得回答。";
+    aiResult.hidden=false;
+    askStatus.textContent="完成。你可以修改題目後再問一次。";
+    aiResult.scrollIntoView({behavior:"smooth",block:"nearest"});
+  }catch(err){
+    askStatus.textContent="發生錯誤："+err.message+"。如果你是直接開本機 HTML，AI 功能需要先部署到 Vercel 才能使用。";
+  }finally{
+    askBtn.disabled=false;
+    askBtn.textContent="送出並產生回答";
+  }
+});
+
+document.getElementById("clearAskBtn").addEventListener("click",()=>{
+  askQuestion.value="";
+  askExample.value="";
+  askStatus.textContent="";
+  aiResult.hidden=true;
+  aiText.textContent="";
+  askQuestion.focus();
+});
+
+render();
+</script>
+</body>
+</html>
