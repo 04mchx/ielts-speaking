@@ -67,25 +67,6 @@ details[open] .chev{transform:rotate(180deg)}
   details .answer{display:block!important}
 }
 
-.ai-card{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:var(--shadow)}
-.ai-title{font-size:20px;font-weight:800}
-.ai-sub{color:var(--muted);font-size:14px;margin-top:3px}
-.ai-grid{display:grid;grid-template-columns:160px 1fr;gap:12px;margin-top:16px;align-items:start}
-.field-label{display:block;font-size:12px;font-weight:800;color:var(--muted);margin:0 0 6px}
-.field{width:100%;border:1px solid var(--line);border-radius:13px;padding:12px 13px;background:#fff;color:var(--text);font-size:16px;outline:none}
-.field:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
-.textarea{resize:vertical;min-height:74px}
-.example-label{display:block;margin-top:12px}
-.ai-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:13px}
-.ask-status{font-size:13px;color:var(--muted);margin-top:10px;min-height:20px}
-.ai-result{margin-top:16px;border-top:1px solid var(--line);padding-top:16px}
-.ai-text{white-space:pre-wrap;background:#f8fafc;border-radius:14px;padding:16px;line-height:1.8}
-@media(max-width:650px){
-  .ai-grid{grid-template-columns:1fr}
-  .ai-card{padding:16px}
-  .ai-actions .primary,.ai-actions .secondary{width:100%}
-}
-
 </style>
 </head>
 <body>
@@ -123,50 +104,6 @@ details[open] .chev{transform:rotate(180deg)}
       <div class="answer-block"><div class="answer-label">中文翻譯</div><div id="randomZh"></div></div>
     </div>
   </section>
-
-
-  <section class="ai-card" id="aiAsk">
-    <div class="ai-head">
-      <div>
-        <div class="ai-title">✨ 自由輸入口說題目</div>
-        <div class="ai-sub">選擇 Part，輸入中文或英文題目；AI 會用簡單英文＋Band 9 邏輯回答，並附繁中翻譯。</div>
-      </div>
-    </div>
-
-    <form id="askForm">
-      <div class="ai-grid">
-        <label>
-          <span class="field-label">Part</span>
-          <select id="askPart" class="field">
-            <option value="Part 1">Part 1</option>
-            <option value="Part 2">Part 2</option>
-            <option value="Part 3">Part 3</option>
-          </select>
-        </label>
-        <label class="grow">
-          <span class="field-label">你的題目</span>
-          <textarea id="askQuestion" class="field textarea" rows="3" placeholder="例如：Do you like travelling? 或：為什麼年輕人容易受到社群媒體影響？" required></textarea>
-        </label>
-      </div>
-
-      <label class="example-label">
-        <span class="field-label">你的個人例子／想法（選填）</span>
-        <textarea id="askExample" class="field textarea" rows="2" placeholder="例如：我喜歡下班後開車聽音樂；或直接寫你的中文想法"></textarea>
-      </label>
-
-      <div class="ai-actions">
-        <button id="askBtn" type="submit" class="primary">送出並產生回答</button>
-        <button id="clearAskBtn" type="button" class="secondary">清除</button>
-      </div>
-      <div id="askStatus" class="ask-status" aria-live="polite"></div>
-    </form>
-
-    <div id="aiResult" class="ai-result" hidden>
-      <div class="answer-label">AI ANSWER</div>
-      <div id="aiText" class="ai-text"></div>
-    </div>
-  </section>
-
   <div class="stats">
     <div id="resultInfo">顯示全部題目</div>
     <div class="actions">
@@ -504,66 +441,6 @@ revealBtn.addEventListener("click",()=>{
   const show=!randomAnswer.classList.contains("show");
   randomAnswer.classList.toggle("show",show);
   revealBtn.textContent=show?"隱藏答案":"顯示答案";
-});
-
-const askForm=document.getElementById("askForm");
-const askPart=document.getElementById("askPart");
-const askQuestion=document.getElementById("askQuestion");
-const askExample=document.getElementById("askExample");
-const askBtn=document.getElementById("askBtn");
-const askStatus=document.getElementById("askStatus");
-const aiResult=document.getElementById("aiResult");
-const aiText=document.getElementById("aiText");
-
-askForm.addEventListener("submit", async (e)=>{
-  e.preventDefault();
-  const question=askQuestion.value.trim();
-  if(!question){
-    askStatus.textContent="請先輸入口說題目。";
-    askQuestion.focus();
-    return;
-  }
-
-  askBtn.disabled=true;
-  askBtn.textContent="回答中…";
-  askStatus.textContent="正在依照你的 IELTS 回答規則產生答案…";
-  aiResult.hidden=true;
-
-  try{
-    const res=await fetch("/api/ask",{
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({
-        part:askPart.value,
-        question,
-        example:askExample.value.trim()
-      })
-    });
-
-    const body=await res.json().catch(()=>({}));
-    if(!res.ok){
-      throw new Error(body.error || "伺服器回應失敗");
-    }
-
-    aiText.textContent=body.answer || "沒有取得回答。";
-    aiResult.hidden=false;
-    askStatus.textContent="完成。你可以修改題目後再問一次。";
-    aiResult.scrollIntoView({behavior:"smooth",block:"nearest"});
-  }catch(err){
-    askStatus.textContent="發生錯誤："+err.message+"。如果你是直接開本機 HTML，AI 功能需要先部署到 Vercel 才能使用。";
-  }finally{
-    askBtn.disabled=false;
-    askBtn.textContent="送出並產生回答";
-  }
-});
-
-document.getElementById("clearAskBtn").addEventListener("click",()=>{
-  askQuestion.value="";
-  askExample.value="";
-  askStatus.textContent="";
-  aiResult.hidden=true;
-  aiText.textContent="";
-  askQuestion.focus();
 });
 
 render();
