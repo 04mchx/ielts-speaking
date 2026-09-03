@@ -67,6 +67,53 @@ details[open] .chev{transform:rotate(180deg)}
   details .answer{display:block!important}
 }
 
+
+/* ===== Daily Mock 9/1–9/19 ===== */
+.daily-panel{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:var(--shadow)}
+.daily-top{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap}
+.daily-kicker{font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--accent)}
+.daily-panel h2{margin:3px 0 2px;font-size:23px}
+.daily-desc{color:var(--muted);font-size:14px}
+.date-wrap{min-width:170px}
+.date-wrap label{display:block;font-size:12px;font-weight:800;color:var(--muted);margin-bottom:5px}
+.date-select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--text);font-size:16px}
+.daily-modebar{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.daily-mode.active{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.daily-grid{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:14px;margin-top:15px}
+.mock-card,.timer-card{border:1px solid var(--line);border-radius:18px;padding:18px;background:#fff}
+.mock-meta{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.mock-part{font-size:13px;font-weight:800;color:var(--accent)}
+.mock-topic{font-size:13px;color:var(--muted);margin-top:2px}
+.mock-progress{font-size:13px;color:var(--muted)}
+.mock-question{font-size:21px;line-height:1.45;font-weight:800;margin:15px 0 12px}
+.cue-card{background:#f8fafc;border-radius:13px;padding:13px 15px;margin:10px 0;font-size:14px}
+.cue-card ul{margin:7px 0 0;padding-left:20px}
+.daily-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.daily-answer{display:none;border-top:1px solid var(--line);margin-top:16px;padding-top:15px}
+.daily-answer.show{display:block}
+.core-box{background:var(--accent-soft);border-radius:12px;padding:12px 14px;margin-top:12px}
+.core-box b{font-size:11px;letter-spacing:.06em;color:var(--muted)}
+.core-box div{font-weight:700;margin-top:4px}
+.timer-card{text-align:center}
+.timer-title{font-size:13px;font-weight:800;color:var(--muted)}
+.timer-hint{font-size:13px;color:var(--muted);margin-top:3px}
+.timer-value{font-size:42px;line-height:1.2;font-weight:800;font-variant-numeric:tabular-nums;margin:14px 0 6px}
+.timer-state{min-height:24px;font-size:13px;font-weight:700;color:var(--muted)}
+.timer-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.part2-timer{display:none;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.part2-timer.show{display:grid}
+.daily-empty{display:none;text-align:center;padding:28px 18px;margin-top:15px;background:#f8fafc;border:1px dashed var(--line);border-radius:16px;color:var(--muted)}
+.daily-empty.show{display:block}
+@media(max-width:720px){
+  .daily-panel{padding:15px}
+  .daily-grid{grid-template-columns:1fr}
+  .timer-card{text-align:left}
+  .timer-value{text-align:center}
+  .timer-state{text-align:center}
+  .date-wrap{width:100%}
+  .daily-modebar .primary,.daily-modebar .secondary{width:auto}
+}
+
 </style>
 </head>
 <body>
@@ -104,6 +151,118 @@ details[open] .chev{transform:rotate(180deg)}
       <div class="answer-block"><div class="answer-label">中文翻譯</div><div id="randomZh"></div></div>
     </div>
   </section>
+
+  <section class="daily-panel" id="dailyMock">
+    <div class="daily-top">
+      <div>
+        <div class="daily-kicker">MASTER PRACTICE · 舊題庫 + 9/1–9/19</div>
+        <h2>🎙️ Speaking 累積練習中心</h2>
+        <div class="daily-desc">可練 8/31 前舊題、全部累積題庫，或依日期做完整模考。答案預設隱藏，並保留計時器與隨機抽題。</div>
+      </div>
+      <div class="date-wrap">
+        <label for="dailyDate">選擇練習題庫</label>
+        <select id="dailyDate" class="date-select">
+          <option value="all-bank">⭐ 全部累積題庫</option>
+          <option value="old-bank">📚 8/31 前舊題庫</option>
+          <option value="2026-09-01" selected>9/1 · Day 1</option>
+<option value="2026-09-02">9/2 · Work / Websites / Morning / Happy Event</option>
+<option value="2026-09-03">9/3 · Rules / Public Places / Growing / Foreign Language</option>
+<option value="2026-09-04">9/4</option>
+<option value="2026-09-05">9/5</option>
+<option value="2026-09-06">9/6</option>
+<option value="2026-09-07">9/7</option>
+<option value="2026-09-08">9/8</option>
+<option value="2026-09-09">9/9</option>
+<option value="2026-09-10">9/10</option>
+<option value="2026-09-11">9/11</option>
+<option value="2026-09-12">9/12</option>
+<option value="2026-09-13">9/13</option>
+<option value="2026-09-14">9/14</option>
+<option value="2026-09-15">9/15</option>
+<option value="2026-09-16">9/16</option>
+<option value="2026-09-17">9/17</option>
+<option value="2026-09-18">9/18</option>
+<option value="2026-09-19">9/19</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="daily-modebar">
+      <button id="dailyExamMode" class="secondary daily-mode active">▶ 順序練習 / 完整模考</button>
+      <button id="dailyRandomMode" class="secondary daily-mode">🎲 此題庫隨機抽題</button>
+      <button id="dailyPart1Random" class="secondary daily-mode">Part 1 隨機</button>
+      <button id="dailyPart2Random" class="secondary daily-mode">Part 2 隨機</button>
+      <button id="dailyPart3Random" class="secondary daily-mode">Part 3 隨機</button>
+    </div>
+
+
+    <div class="answer-block" style="margin-top:12px">
+      <div class="answer-label">題庫結構</div>
+      <div style="margin-top:5px">
+        <b>8/31 前舊題庫：</b>209 題，可順序練習或依 Part 隨機抽題。<br>
+        <b>9/1–9/19：</b>每天依 Part 1 → Part 2 → Part 3 做完整模考（目前已加入 9/1、9/2、9/3）。<br>
+        <b>全部累積題庫：</b>把舊題＋每日新增題一起複習。
+      </div>
+    </div>
+
+    <div id="dailyEmpty" class="daily-empty">
+      這一天的題目還沒加入。8/31 前舊題庫與已加入的每日模考都會保留；之後的新題會繼續累積在同一份網頁裡。
+    </div>
+
+    <div id="dailyContent" class="daily-grid">
+      <div class="mock-card">
+        <div class="mock-meta">
+          <div>
+            <div id="mockPart" class="mock-part"></div>
+            <div id="mockTopic" class="mock-topic"></div>
+          </div>
+          <div id="mockProgress" class="mock-progress"></div>
+        </div>
+
+        <div id="mockQuestion" class="mock-question"></div>
+        <div id="mockCue" class="cue-card" style="display:none"></div>
+
+        <div class="daily-actions">
+          <button id="mockPrev" class="secondary">← 上一題</button>
+          <button id="mockReveal" class="primary">看答案</button>
+          <button id="mockNext" class="secondary">下一題 →</button>
+        </div>
+
+        <div id="mockAnswer" class="daily-answer">
+          <div class="answer-block">
+            <div class="answer-label">ENGLISH</div>
+            <div id="mockEn"></div>
+          </div>
+          <div class="answer-block">
+            <div class="answer-label">中文翻譯</div>
+            <div id="mockZh"></div>
+          </div>
+          <div class="core-box">
+            <b>核心思路</b>
+            <div id="mockCore"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timer-card">
+        <div class="timer-title">⏱️ ANSWER TIMER</div>
+        <div id="timerHint" class="timer-hint">Part 1｜20 秒</div>
+        <div id="timerValue" class="timer-value">00:20</div>
+        <div id="timerState" class="timer-state">準備好再開始</div>
+
+        <div id="part2TimerModes" class="part2-timer">
+          <button id="timerPrep" class="secondary">準備 1:00</button>
+          <button id="timerSpeak" class="secondary">作答 2:00</button>
+        </div>
+
+        <div class="timer-actions">
+          <button id="timerStart" class="primary">開始</button>
+          <button id="timerReset" class="secondary">重設</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <div class="stats">
     <div id="resultInfo">顯示全部題目</div>
     <div class="actions">
@@ -113,7 +272,7 @@ details[open] .chev{transform:rotate(180deg)}
   </div>
 
   <main id="list"></main>
-  <div class="footer">IELTS Speaking Practice Bank · Offline standalone webpage</div>
+  <div class="footer">IELTS Speaking Master Bank · Old Bank + Daily Mock 9/1–9/19 · Offline standalone webpage</div>
 </div>
 
 <script>
@@ -400,6 +559,81 @@ add("Part 3","Entertainment / Celebrities","Is talent more important than hard w
 add("Part 3","Entertainment / Celebrities","Do famous actors and singers have a responsibility to be good role models?","To some extent, yes. They don't need to be perfect, but they should understand that many young people copy what they say and do, so their public behaviour can have real influence.","某種程度上有。他們不需要完美，但應該知道很多年輕人會模仿他們的言行，所以公開行為真的可能產生影響。");
 add("Part 3","Entertainment / Celebrities","Has social media changed the relationship between celebrities and fans?","Yes. Social media makes celebrities feel much closer because fans can see their daily lives and opinions. That creates a stronger connection, but it can also make people feel they know a celebrity more personally than they really do.","有。社群媒體讓名人感覺離粉絲更近，因為大家可以看到日常和想法。這會建立更強的連結，但也可能讓人產生一種其實沒有那麼真實的熟悉感。");
 
+
+// ===== 9/1 Day 1: Teachers → Language learner → Language Learning =====
+add("Part 1","Teachers","Do you want to be a teacher in the future?","Probably not. I like explaining things to people, but being a teacher needs a lot of patience and energy every day. I would rather work in a field where I can solve technical problems.","應該不會。我喜歡跟別人解釋事情，但當老師每天都需要很多耐心和精力。我想我還是比較喜歡可以解決技術問題的工作。","No → teaching needs patience → I prefer technical work.");
+add("Part 1","Teachers","Do you have a teacher from your past that you still remember?","Yes. I still remember one of my high school teachers because she was very patient with students. When we did not understand something, she would explain it again instead of making us feel embarrassed.","有。我到現在還記得一位高中老師，因為她對學生很有耐心。我們聽不懂時，她會再解釋一次，而不是讓我們覺得很丟臉。","patient teacher → safe to ask → stronger memory");
+add("Part 1","Teachers","Are you still in touch with your primary school teachers?","No, not really. It has been many years, and everyone has moved on with their own life. But I still remember a few of them when I think about my childhood.","沒有，現在幾乎沒有聯絡。已經過很多年了，大家也都有自己的生活。不過想到童年時，我還是會記得其中幾位老師。","No → many years passed → still remember them");
+add("Part 1","Teachers","In what way has your favourite teacher helped you?","My favourite teacher helped me become more confident. She never made me feel stupid when I asked a simple question, so I became less afraid of making mistakes and more willing to speak up.","我最喜歡的老師讓我變得更有自信。當我問很簡單的問題時，她從來不會讓我覺得自己很笨，所以我後來比較不怕犯錯，也更敢開口。","safe environment → less fear → more confidence");
+add("Part 2","A person who is good at learning languages","Describe a person you know who is good at learning languages.","I would like to talk about one of my university friends, who is probably the best language learner I know. She can speak Mandarin and English very well, and she has also learned some Japanese and Korean. I met her at university because we took some of the same classes and later became friends. What impressed me most was not just the number of languages she knew, but the way she learned them. She was never afraid of sounding silly. If she learned a new word, she would try to use it in a real conversation almost immediately. She also watched videos, listened to songs and followed social media in different languages, so learning was part of her daily life instead of something she only did from a textbook. That is why she improved so quickly. She used the language before she felt completely ready. Watching her also changed the way I look at language learning. I realised that making mistakes is not a sign that you are bad at a language. It is actually part of becoming better at it.","我想介紹一位大學朋友，她大概是我認識的人裡最會學語言的。她中文和英文都很好，也學過一些日文和韓文。我們是在大學因為修到一些相同的課而認識，後來成為朋友。最讓我印象深刻的不是她會多少種語言，而是她學語言的方法。她完全不怕講錯。每次學到一個新單字，她幾乎馬上就會試著在真實對話中使用。她也會看不同語言的影片、聽歌、追社群媒體，所以學語言不是只有坐在書桌前念課本，而是她生活的一部分。我覺得這就是她進步這麼快的原因。她不會等到自己完全準備好才使用語言。看著她也改變了我對語言學習的想法。我發現犯錯不代表語言很差，反而就是進步過程的一部分。","She uses the language before she feels ready.");
+add("Part 3","Language Learning","What qualities are needed to learn a foreign language well?","The most important quality is not being afraid of mistakes. Language is a practical skill, so people need to actually use it. For example, someone who speaks imperfectly every day may improve faster than someone who studies grammar but never speaks. More practice usually leads to more confidence.","我覺得最重要的特質是不怕犯錯。語言是一個實際技能，所以一定要真的使用。例如一個每天都用不完美的英文開口的人，可能會比只讀文法但從不說話的人進步更快。練習越多，通常就越有自信。","less fear → more speaking → more feedback → faster improvement");
+add("Part 3","Language Learning","At what age should children start learning a foreign language?","Children can start quite young, maybe in primary school, as long as the learning is natural and not stressful. Simple songs, games and short conversations can help them become familiar with the sound of the language. If learning feels enjoyable, they are more likely to continue.","我覺得可以從滿小的時候開始，例如小學，只要學習方式自然、不要有太大壓力。簡單的歌曲、遊戲和短對話可以先讓孩子熟悉語言的聲音。如果學習是好玩的，他們也比較願意持續下去。","start young → keep it fun → build familiarity → continue longer");
+add("Part 3","Language Learning","Is it easier for children to learn a foreign language than adults?","In many cases, yes, because children are usually less afraid of sounding wrong. Adults often stop themselves because they want to speak perfectly. A child may simply copy a new phrase and try it immediately, so they get much more practice.","很多情況下是，因為孩子通常比較不怕講錯。成年人常因為想要講得很完美而不敢開口，但孩子可能聽到一句新的話就直接模仿，所以練習量反而更多。","children fear mistakes less → try more → get more practice");
+add("Part 3","Language Learning","What are the benefits of learning a foreign language?","One major benefit is that it gives people direct access to another culture. For example, if you understand the language, you can talk to local people instead of depending completely on translations. That can make travel and international relationships much deeper.","一個很大的好處是可以直接接觸另一種文化。例如如果你懂當地語言，就可以直接跟當地人聊天，而不是完全依賴翻譯。這會讓旅行和跨文化關係都更深入。","language → direct communication → deeper cultural understanding");
+add("Part 3","Language Learning","Why are some people better at learning languages than others?","Some people are better because they are more willing to use the language regularly. Natural talent may help, but daily exposure matters more over time. Someone who listens, reads and speaks a little every day is constantly training their brain to recognise patterns.","我覺得有些人比較會學語言，是因為他們更願意固定使用。天分可能有幫助，但長期來看每天接觸更重要。如果一個人每天都聽、讀、說一點，大腦就會一直練習辨認語言的規律。","regular exposure → recognise patterns → faster learning");
+add("Part 3","Language Learning","Will translation technology reduce the need to learn foreign languages in the future?","It may reduce the need in simple situations, but I do not think it will replace language learning completely. A translation app can tell you the meaning of a sentence, but it cannot always show humour, emotion or cultural meaning. If people want a real relationship, knowing the language still makes communication much more natural.","在簡單情況下可能會降低需求，但我不覺得它會完全取代語言學習。翻譯工具可以告訴你句子的意思，但不一定能完整傳達幽默、情緒或文化含義。如果人們想建立真正的關係，懂對方的語言還是會讓溝通自然很多。","translation gives meaning → language gives connection");
+
+
+// ===== 9/3 Daily Mock: Music / Walking / Memory / Environmental Law =====
+add("Part 1","Music","Has the kind of music you like changed since you were younger?","Not that much. I still enjoy pop music, but now I listen to singers from more countries, so my playlist has become much more mixed.","沒有改變很多。我還是喜歡流行音樂，不過現在會聽更多不同國家的歌手，所以歌單比以前混合很多。","same basic taste → wider range now");
+add("Part 1","Walking","Do you walk a lot?","Not really. Most of my daily travel is for work, so I usually take public transport or drive instead of walking long distances.","沒有很多。我每天移動主要都是因為工作，所以通常會搭大眾運輸或開車，不太會走很長的距離。","not much → work travel → transport is easier");
+add("Part 1","Walking","Where do you usually go for a walk?","Usually somewhere near my home or around a shopping area. I prefer places where I can walk casually without planning a serious route.","通常是在家附近，或是商場附近。我比較喜歡那種不用特別規劃路線、可以隨便走走的地方。","near home/shopping area → casual walking");
+add("Part 1","Walking","Did you walk more when you were a child?","Yes, probably. When I was younger, I spent more time outside and sometimes went cycling with my dad, so I was generally more active.","應該有。小時候我比較常待在外面，而且有時候會跟爸爸騎腳踏車，所以整體活動量比現在多。","childhood → more outdoor time → more active");
+add("Part 1","Walking","Do you think people walk enough nowadays?","Probably not. Life has become very convenient, so people can drive, take public transport or order things online instead of walking. That slowly reduces daily movement.","可能沒有。現在生活太方便了，人可以開車、搭大眾運輸，甚至直接網購，不一定需要走路，所以日常活動量會慢慢下降。","convenience → less need to walk → less daily movement");
+add("Part 2","Environmental Law","Describe an environmental law you would like your country to introduce.","An environmental law I would like my country to introduce is a stronger rule on single-use plastic, especially disposable cups, bags and food containers. I think this law is needed because these items are used for only a few minutes, but they can remain in the environment for a very long time. I would not ban everything immediately because that would be difficult for both shops and customers. Instead, the government could introduce the rule step by step. For example, stores could charge more for disposable items and give discounts to people who bring reusable cups or containers. Later, businesses could be required to reduce plastic packaging. If reusable products become cheaper and easier, people will naturally choose them more often. In the long run, that could reduce waste without making daily life too inconvenient.","我希望台灣可以推出一個更嚴格限制一次性塑膠的環境法律，尤其是免洗杯、塑膠袋和外帶餐盒。我覺得需要這個法律，是因為這些東西可能只使用幾分鐘，卻會在環境裡存在非常久。我不會主張一次全部禁止，因為對商家和消費者都太困難。我會希望政府分階段實施。例如先提高一次性用品的費用，同時給自帶杯子或餐盒的人折扣，之後再要求企業逐步減少塑膠包裝。如果重複使用的產品變得更便宜、更方便，人自然就會更常選擇它。長期下來，就可以在不讓生活太不方便的情況下減少垃圾。","make disposable plastic less convenient → reusable choices become normal → less waste");
+add("Part 3","Environmental Laws","What environmental problems are common in cities?","One common problem is air pollution because cities have a lot of traffic. When thousands of cars are moving every day, emissions build up in a small area. Over time, this can reduce the quality of daily life.","一個很常見的問題是空氣污染，因為城市裡有很多交通工具。當每天有大量汽車在同一個區域移動時，排放就會累積，長期下來會降低生活品質。","heavy traffic → emissions → poorer urban environment");
+add("Part 3","Environmental Laws","Do you think environmental laws are important?","Yes, because environmental damage often affects people who did not cause it. For example, one factory can pollute a river used by an entire community. Laws create a basic limit so that private profit does not become a public problem.","重要，因為環境破壞常常會影響到根本沒有造成問題的人。例如一家工廠就可能污染整個社區使用的河流。法律可以設下基本底線，避免私人利益變成公共問題。","one actor causes damage → many people suffer → law creates limits");
+add("Part 3","Environmental Laws","Why do some people not follow environmental rules?","The main reason is convenience. People may understand that a rule is good for the environment, but if following it takes more time or costs more money, they may choose the easier option. So good rules also need to be practical.","最主要的原因是方便。人可能知道一項規定對環境有幫助，但如果遵守它需要更多時間或花更多錢，就可能選擇比較容易的方法。所以好的規定也必須實際。","rule creates inconvenience → people avoid it → design must be practical");
+add("Part 3","Environmental Laws","Should companies receive heavier punishments than individuals when they damage the environment?","Generally, yes, because companies can cause damage on a much larger scale. One person's mistake may create a small amount of waste, but a company can pollute an area for years. The punishment should match the size of the damage.","一般來說應該，因為企業造成的影響規模可能大很多。一個人的錯誤可能只產生少量垃圾，但一家公司可能污染一個地區很多年。所以懲罰應該和造成的傷害規模相符。","larger impact → larger responsibility → heavier punishment");
+add("Part 3","Environmental Laws","Is education or punishment more effective in protecting the environment?","I think education works better in the long term because it changes the reason behind people's behaviour. Punishment may stop someone because they are afraid of a fine, but education can make them understand why the action matters. Once the idea becomes part of their values, they may continue even when nobody is watching.","我覺得長期來看教育比較有效，因為它會改變行為背後的原因。懲罰可能讓人因為怕罰款而停止某件事，但教育可以讓人理解為什麼這件事重要。當這個觀念真的變成價值觀後，就算沒有人看著，他也可能繼續做。","education → internal reason → behaviour lasts longer");
+
+
+// ===== 9/2 Daily Mock added to searchable bank =====
+add("Part 1","Work","What work do you do?","I work as an assistant engineer. Most of my work is related to software and system testing, so I spend a lot of time checking whether things work properly.","我是一名助理工程師。我的工作大多和軟體及系統測試有關，所以常常需要確認系統有沒有正常運作。","job → main task → tiny detail");
+add("Part 1","Work","Why did you choose this type of work?","I studied Information Management at university, so technology was already familiar to me. I also enjoy solving problems, which made this kind of work feel like a natural choice.","我大學讀資訊管理，所以本來就對科技領域比較熟悉。我也喜歡解決問題，因此這類工作對我來說算是很自然的選擇。","study background → enjoy problem-solving → natural choice");
+add("Part 1","Work","Do you enjoy your work?","Yes, most of the time. I like the feeling of finally finding the cause of a problem after testing it for a while. It can be frustrating, but solving it feels really satisfying.","大部分時間都喜歡。我很喜歡測試一陣子後終於找到問題原因的感覺。過程有時很煩，但解決之後很有成就感。","yes → solving problems → satisfaction");
+add("Part 1","Work","What technology do you use at work?","I mainly use computers, programming tools, database systems and testing software. I also use AI sometimes, but I still check the logic myself before trusting the result.","我主要會用電腦、程式開發工具、資料庫系統和測試軟體。有時也會使用 AI，但我還是會自己檢查邏輯，不會直接相信結果。","tools → AI as support → still verify");
+add("Part 1","Work","Do you think you will do the same job in the future?","Probably not exactly the same job. I would like to study further and gradually move towards work that includes more planning and communication, while still staying in the technology field.","可能不會完全做一樣的工作。我希望之後繼續讀書，慢慢往更多規劃和溝通的工作發展，但還是會留在科技領域。","not exactly → further study → broader role");
+add("Part 1","Websites","What kinds of websites do you often visit?","I visit quite a mix of websites. I use some for work or study, and others for videos, shopping or checking what my friends are doing online.","我會看很多不同類型的網站。有些是工作或學習用，有些則是看影片、購物，或看看朋友最近在做什麼。","mixed use → work/study + entertainment");
+add("Part 1","Websites","What is your favourite website?","YouTube is probably my favourite because I can use it for both entertainment and learning. I can watch something relaxing, but I can also find tutorials when I need help with something.","YouTube 應該算是我最喜歡的網站，因為它既可以娛樂也可以學習。我可以看一些放鬆的影片，也可以在需要時找教學。","YouTube → fun + learning → useful in different moods");
+add("Part 1","Websites","Do you prefer getting information from websites or from books?","For daily information, I prefer websites because they are faster and easier to update. For something I want to understand deeply, books can still be better because the information is usually more organised.","日常資訊我比較喜歡網站，因為速度快、更新也容易。如果是想深入理解的內容，書還是比較好，因為資訊通常更有系統。","web = speed → books = depth");
+add("Part 1","Websites","Are there any websites you use every day?","Yes. I use Google and YouTube almost every day. Google helps me find information quickly, while YouTube is usually where I go when I want to relax or learn something visually.","有。我幾乎每天都會用 Google 和 YouTube。Google 可以快速找資料，而 YouTube 通常是我想放鬆或用影片學東西時會去的地方。","daily websites → different purposes");
+add("Part 1","Morning Time","Do you like getting up early in the morning?","Not at all. I really need enough sleep, so waking up early is probably one of my least favourite parts of a workday.","完全不喜歡。我真的很需要睡眠，所以早起大概是上班日最不喜歡的事情之一。","no → need sleep → workday difficulty");
+add("Part 1","Morning Time","What do you usually do in the morning?","On weekdays, I get ready for work and leave home quite quickly. I usually buy something to drink on the way, and then I start my workday.","平日早上我會準備上班，通常很快就出門。路上我常會買個飲料，然後開始一天的工作。","get ready → drink → work");
+add("Part 1","Morning Time","What did you usually do in the morning when you were a child?","My mornings were much simpler when I was a child. I just got ready for school, had something to eat and waited for my family to take me or tell me it was time to leave.","小時候早上簡單很多。我就是準備上學、吃點東西，然後等家人帶我出門，或提醒我該走了。","childhood → simpler routine → family support");
+add("Part 1","Morning Time","Are your mornings different now from when you were younger?","Yes, definitely. I have much more responsibility now because I need to manage my own time and make sure I get to work on time. As a child, adults handled most of that for me.","差很多。現在我要自己管理時間，也要確保準時上班，所以責任更多。小時候這些事情大多都是大人幫我處理。","more responsibility now → manage own time");
+add("Part 1","Morning Time","Are your weekend mornings different from your weekday mornings?","Completely different. On weekdays I need to follow a schedule, but at weekends I usually sleep until I wake up naturally if I have no plans.","完全不一樣。平日要照固定時間走，但週末如果沒有安排，我通常會直接睡到自然醒。","weekday = schedule → weekend = freedom");
+add("Part 2","Organizing a Happy Event","Describe a time when you organized a happy event successfully.","One event I organised successfully was a small birthday dinner for one of my close friends. I wanted it to feel special without making it too complicated, so I first asked a few friends when they were free and then booked a restaurant that everyone liked. I also prepared a small cake and asked another friend to help me keep the plan secret. Before the dinner, we divided the jobs. I handled the booking and timing, while my friend picked up the cake and made sure the birthday person arrived at the right time. The event was quite simple, but it went smoothly. Everyone arrived on time, the surprise worked, and the birthday person looked genuinely happy. For me, that was the reason it felt successful. A good event does not need to be huge or expensive. If people feel comfortable, enjoy being together and leave with a good memory, the organisation has already done its job.","我曾經成功安排過一次朋友的小型生日聚餐。我希望它有一點特別，但又不要弄得太複雜，所以我先問幾個朋友哪天有空，接著訂了一間大家都喜歡的餐廳。我也準備了一個小蛋糕，並請另一個朋友幫忙保密。聚餐前，我們把工作分好。我負責訂位和時間安排，另一位朋友去拿蛋糕，也負責確保壽星在正確的時間出現。整個活動其實很簡單，但進行得很順利。大家都有準時到，驚喜也成功，而且壽星看起來真的很開心。對我來說，這就是它成功的原因。一個好的活動不需要很大或很貴，只要大家相處舒服、玩得開心，而且最後留下好回憶，就已經很成功了。","simple planning → clear roles → smooth event → happy memory");
+add("Part 3","Organizing Activities","Do you prefer to prepare and organize an activity or just take part in an activity?","I usually prefer taking part because it is less stressful. When someone else organises everything, I can focus on enjoying the event instead of worrying about timing or small problems. However, I am happy to help if the group needs me.","我通常比較喜歡直接參加，因為壓力比較小。當別人負責安排時，我可以專心享受活動，不需要一直擔心時間或小問題。不過如果團體需要，我也很願意幫忙。","participate → less responsibility → enjoy more");
+add("Part 3","Organizing Activities","How would you feel when you were not well prepared for something?","I would feel quite anxious because uncertainty makes me uncomfortable. For example, if I had an important presentation without enough preparation, I would keep worrying about forgetting something. Better preparation usually gives me more confidence.","我會滿焦慮的，因為不確定感會讓我不舒服。例如重要簡報如果沒有準備好，我會一直擔心自己漏掉什麼。準備得越完整，通常就越有自信。","poor preparation → uncertainty → anxiety");
+add("Part 3","Organizing Activities","Do people need others’ help when organizing things?","Yes, especially for larger activities. One person cannot notice every detail, so sharing tasks makes the work faster and reduces mistakes. For example, one person can manage the place while another handles food or guests.","需要，尤其是比較大型的活動。一個人不可能注意到所有細節，所以分工可以讓事情更快，也能減少錯誤。例如一個人負責場地，另一個人負責食物或來賓。","more people → divide tasks → fewer mistakes");
+add("Part 3","Organizing Activities","Does everything need to be well prepared?","No. Preparation matters when a mistake could create a serious problem, but small daily activities can stay flexible. For example, a business meeting needs a clear plan, while a casual weekend with friends does not need every minute arranged.","不用。當錯誤可能造成嚴重問題時，準備很重要，但日常小活動可以保留彈性。例如商務會議需要清楚規劃，但朋友週末出去玩不需要每分鐘都排好。","important events need planning → casual events need flexibility");
+add("Part 3","Organizing Activities","On what occasions do people need to be organized?","People need to be especially organised when many people or deadlines are involved. Weddings, work projects and trips are good examples because one missed detail can affect everyone else. Clear planning keeps the whole group moving in the same direction.","當事情牽涉很多人或有明確期限時，特別需要有組織。婚禮、工作專案和旅行都是很好的例子，因為漏掉一個細節就可能影響其他人。清楚規劃可以讓整個團體朝同一方向進行。","many people/deadlines → coordination matters");
+add("Part 3","Organizing Activities","How can parents help children to be organized?","Parents can give children small responsibilities instead of doing everything for them. For example, a child can prepare their own school bag the night before. Repeating simple routines helps them learn to plan ahead and gradually become more independent.","父母可以給孩子一些小責任，而不是全部幫他們做。例如可以讓孩子前一天晚上自己整理書包。重複這些簡單習慣，可以讓他們學會提前規劃，也會慢慢更獨立。","small responsibility → routine → planning habit → independence");
+
+
+// ===== 9/3 Daily Mock: Rules / Public Places / Growing / Foreign Languages =====
+add("Part 1","Rules","Do you prefer to have more or fewer rules at school?","Fewer, but the important rules should stay. Too many small rules can make students feel controlled, while clear rules about safety and respect are still necessary.","我比較希望規則少一點，但重要的規則還是要保留。太多小規定會讓學生覺得被限制，不過安全和尊重相關的規則還是很必要。","fewer rules → less pressure → keep safety/respect rules");
+add("Part 1","Rules","Have you ever had a really dedicated teacher?","Yes. I had a teacher who was very patient and always explained things again when students were confused. That made the class feel much safer to ask questions in.","有。我以前有一位老師非常有耐心，學生聽不懂時他會再解釋一次。這讓大家在課堂上更敢問問題。","patient teacher → students feel safe → ask more questions");
+add("Part 1","Rules","Do you think students would benefit more from more rules?","Not necessarily. More rules do not always create better behaviour. Students may learn more when the rules are simple and they understand why those rules exist.","不一定。規則變多不代表行為一定會變好。如果規則簡單，而且學生知道為什麼要有這些規則，通常更有用。","more rules ≠ better behaviour → clear reason matters");
+add("Part 1","Rules","Are there any rules for students at your school?","Yes, there were basic rules about being on time, wearing the right uniform and respecting teachers. They were quite normal, so most students were already used to them.","有，像是準時、穿正確制服和尊重老師這些基本規定。這些都很普通，所以大部分學生早就習慣了。","basic school rules → normal → easy to follow");
+add("Part 1","Public Places","Do you wear headphones in public places?","Yes, quite often, especially when I am on public transport. Music helps me relax, but I usually keep the volume low so I can still notice what is happening around me.","會，尤其搭大眾運輸時很常戴。音樂可以讓我放鬆，不過我通常不會開太大聲，這樣還是能注意周圍的情況。","yes → relax with music → stay aware");
+add("Part 1","Public Places","Have you ever talked with someone you don’t know in public places?","Yes, but usually only for a simple reason, like asking for directions or checking whether I am in the right line. I do not normally start long conversations with strangers.","有，但通常只是很簡單的原因，例如問路或確認自己有沒有排對隊。我平常不太會主動和陌生人聊很久。","yes → practical reason → not long conversations");
+add("Part 1","Public Places","Do you often go to public places with your friends?","Yes. We often meet in department stores or shopping areas because we can eat, walk around and talk in the same place. It is simple and convenient for everyone.","會。我和朋友常在百貨公司或商圈見面，因為可以一起吃飯、逛逛和聊天，對大家都很方便。","yes → shopping areas → many activities in one place");
+add("Part 1","Public Places","Would you like to see more public places near where you live?","Yes, especially more comfortable parks or open spaces. They would give people somewhere to walk, sit and relax without needing to spend money.","會，尤其希望有更多舒服的公園或開放空間。這樣大家不用花錢，也可以有地方散步、坐著或放鬆。","more parks → free space → walk/rest");
+add("Part 1","Growing Vegetables / Fruits","Should schools teach students how to grow vegetables?","Yes, at least as a small practical activity. Students can learn where food comes from, and taking care of a plant also teaches patience and responsibility.","可以，至少當成一個小型實作活動。學生可以知道食物從哪裡來，而且照顧植物也能學到耐心和責任感。","practical activity → understand food → responsibility");
+add("Part 1","Growing Vegetables / Fruits","Do you think it’s easy to grow vegetables?","Not for me. You need to understand watering, sunlight and sometimes insects, so there are quite a few things to remember. I would probably forget one of them.","對我來說不容易。要注意澆水、日照，有時還要處理蟲害，所以其實有滿多事情要記，我大概會忘掉其中一個。","not easy → several things to manage → easy to forget");
+add("Part 1","Growing Vegetables / Fruits","Do many people grow vegetables in your city?","Not many, mainly because most people live in apartments and do not have much outdoor space. Some people may grow a few small plants on a balcony, though.","不算多，主要是很多人住公寓，沒有太多戶外空間。不過有些人可能會在陽台種幾株小植物。","apartments → limited space → only small-scale growing");
+add("Part 1","Growing Vegetables / Fruits","Is growing vegetables popular in your country?","It is more common in rural areas than in big cities. People who have more land can grow vegetables more easily, while city residents usually buy them from markets or supermarkets.","鄉村地區比大城市常見。有土地的人比較容易自己種菜，城市居民通常還是直接去市場或超市買。","rural > urban → land makes it easier");
+add("Part 1","Growing Vegetables / Fruits","Are you interested in growing vegetables and fruits?","Not really. I like eating fresh fruit and vegetables, but taking care of plants is not something I enjoy. I would rather buy them and leave the growing to someone more patient.","不太有興趣。我喜歡吃新鮮蔬果，但我不喜歡照顧植物。我比較願意直接買，把種植交給更有耐心的人。","like eating them → dislike plant care → prefer buying");
+add("Part 2","First Time Using a Foreign Language","Describe the time when you first talked in a foreign language.","The first time I clearly remember having a real conversation in English was during my university summer exchange in Rhode Island in the United States. Before that, I had studied English for years, but most of it happened in classrooms or exams. During the exchange, I had to use English with people I had never met before. One conversation I remember was with another student after class. We talked about where we were from, what we were studying and what we wanted to do during the exchange. The topic itself was very simple, but I was surprisingly nervous because there was no teacher and no prepared answer. I had to listen, understand and respond immediately. I made some grammar mistakes and probably paused too much, but the other person still understood me and the conversation continued normally. That moment gave me a lot of confidence. I realised that real communication does not need perfect English. If the other person can understand what I mean, the conversation is already working. After that, I became much more willing to speak English with people instead of waiting until every sentence sounded perfect.","我印象中第一次真正用英文和別人對話，是大學暑期去美國羅德島交換的時候。在那之前我已經學英文很多年，但大多是在教室或考試裡。交換期間，我必須真的用英文和不認識的人溝通。我記得有一次下課後和另一位學生聊天，我們談彼此來自哪裡、念什麼科系，以及交換期間想做什麼。話題本身很簡單，但我意外地很緊張，因為現場沒有老師，也沒有準備好的答案，我必須立刻聽懂並回應。我有一些文法錯誤，可能也停頓太多，但對方還是聽懂了，而且對話很自然地繼續。那次經驗讓我增加很多自信。我發現真正的溝通不需要完美英文，只要對方能理解我的意思，溝通其實就已經成功了。之後我就更願意直接用英文和人說話，而不是等到每一句都完全正確才開口。","classroom English → real conversation → nervous but understood → confidence");
+add("Part 3","Foreign Languages","Do you think minority languages will disappear?","Some of them probably will, especially if younger people stop using them in daily life. A language survives through regular use, so when children only speak a dominant language at school and online, the smaller language can slowly disappear.","有些可能會，尤其當年輕人不再在日常生活中使用時。語言需要靠持續使用才能存在，如果孩子在學校和網路上都只使用主流語言，小語言就可能慢慢消失。","less daily use → fewer young speakers → language disappears");
+add("Part 3","Foreign Languages","Does a person still need to learn other languages if he or she is good at English?","Yes, because English can help with communication, but another language gives much deeper access to a culture. For example, speaking the local language can make conversations with local people more natural and personal.","需要。英文可以幫助溝通，但另一種語言可以讓人更深入接觸文化。例如會說當地語言時，和當地人的交流通常會更自然、更有個人連結。","English = communication → local language = deeper connection");
+add("Part 3","Foreign Languages","Which skill is more important, speaking or writing?","For everyday communication, speaking is usually more important because people need it for immediate interaction. If someone travels or works with international colleagues, being able to explain an idea clearly can solve a problem straight away. Writing still matters, but it is often easier to revise.","日常溝通來說，口說通常更重要，因為它用在即時互動。如果旅行或和國際同事工作，能立刻把想法說清楚就可以直接解決問題。寫作也重要，但通常還有時間修改。","speaking → immediate interaction → solves problems quickly");
+add("Part 3","Foreign Languages","Why do some people find it difficult to learn a foreign language?","Fear of making mistakes is a major reason. Some learners know quite a lot of vocabulary and grammar, but they hesitate every time they need to speak. Because they practise less, improvement becomes slower and the fear gets even stronger.","害怕犯錯是一個很大的原因。有些人其實知道不少單字和文法，但每次要開口就會猶豫。因為實際練習變少，進步速度也會變慢，最後反而更害怕。","fear → less practice → slower progress → more fear");
+add("Part 3","Foreign Languages","At what age should children start learning another language?","Primary-school age is a good time, as long as the learning stays enjoyable. Songs, games and simple conversations can help children get used to the sound of a language without making it feel like another difficult exam subject.","小學階段是滿好的時間，只要學習方式保持有趣。歌曲、遊戲和簡單對話可以讓孩子熟悉語言的聲音，而不會覺得它只是另一個很難的考試科目。","start young → fun exposure → natural familiarity");
+add("Part 3","Foreign Languages","Do you think technology will make foreign-language learning less necessary in the future?","It may make basic communication easier, but it will not remove the need completely. Translation tools can give the meaning of a sentence, but they may miss humour, emotion or cultural details. For real relationships, knowing the language still makes communication much more natural.","科技可能會讓基本溝通更容易，但不會完全消除學語言的需要。翻譯工具可以提供句子的意思，但可能漏掉幽默、情緒或文化細節。要建立真正的關係，懂對方語言仍然會讓溝通自然很多。","technology helps meaning → language keeps emotion/culture/connection");
+
 const list=document.getElementById("list");
 const search=document.getElementById("search");
 const tabs=[...document.querySelectorAll(".tab")];
@@ -483,6 +717,248 @@ revealBtn.addEventListener("click",()=>{
   randomAnswer.classList.toggle("show",show);
   revealBtn.textContent=show?"隱藏答案":"顯示答案";
 });
+
+
+
+const dailyMocks = {
+  "2026-09-02": [{"part": "Opening", "topic": "Identity Check", "q": "Good morning. Can you tell me your full name, please?", "en": "Good morning. My full name is Min-Chia Tu.", "zh": "早安。我的全名是杜敏嘉。", "core": "直接回答即可，不需要發展。"}, {"part": "Opening", "topic": "Identity Check", "q": "What should I call you?", "en": "You can call me Min-Chia.", "zh": "你可以叫我 Min-Chia。", "core": "簡短、自然即可。"}, {"part": "Opening", "topic": "Identity Check", "q": "Do you work or are you a student?", "en": "I am working now. I recently graduated from university and I currently work as an assistant engineer.", "zh": "我現在有工作。我最近剛大學畢業，目前是一名助理工程師。", "core": "目前狀態 → 一個小細節。"}, {"part": "Part 1", "topic": "Work", "q": "What work do you do?", "en": "I work as an assistant engineer. Most of my work is related to software and system testing, so I spend a lot of time checking whether things work properly.", "zh": "我是一名助理工程師。我的工作大多和軟體及系統測試有關，所以常常需要確認系統有沒有正常運作。", "core": "job → main task → tiny detail"}, {"part": "Part 1", "topic": "Work", "q": "Why did you choose this type of work?", "en": "I studied Information Management at university, so technology was already familiar to me. I also enjoy solving problems, which made this kind of work feel like a natural choice.", "zh": "我大學讀資訊管理，所以本來就對科技領域比較熟悉。我也喜歡解決問題，因此這類工作對我來說算是很自然的選擇。", "core": "study background → enjoy problem-solving → natural choice"}, {"part": "Part 1", "topic": "Work", "q": "Do you enjoy your work?", "en": "Yes, most of the time. I like the feeling of finally finding the cause of a problem after testing it for a while. It can be frustrating, but solving it feels really satisfying.", "zh": "大部分時間都喜歡。我很喜歡測試一陣子後終於找到問題原因的感覺。過程有時很煩，但解決之後很有成就感。", "core": "yes → solving problems → satisfaction"}, {"part": "Part 1", "topic": "Work", "q": "What technology do you use at work?", "en": "I mainly use computers, programming tools, database systems and testing software. I also use AI sometimes, but I still check the logic myself before trusting the result.", "zh": "我主要會用電腦、程式開發工具、資料庫系統和測試軟體。有時也會使用 AI，但我還是會自己檢查邏輯，不會直接相信結果。", "core": "tools → AI as support → still verify"}, {"part": "Part 1", "topic": "Work", "q": "Do you think you will do the same job in the future?", "en": "Probably not exactly the same job. I would like to study further and gradually move towards work that includes more planning and communication, while still staying in the technology field.", "zh": "可能不會完全做一樣的工作。我希望之後繼續讀書，慢慢往更多規劃和溝通的工作發展，但還是會留在科技領域。", "core": "not exactly → further study → broader role"}, {"part": "Part 1", "topic": "Websites", "q": "What kinds of websites do you often visit?", "en": "I visit quite a mix of websites. I use some for work or study, and others for videos, shopping or checking what my friends are doing online.", "zh": "我會看很多不同類型的網站。有些是工作或學習用，有些則是看影片、購物，或看看朋友最近在做什麼。", "core": "mixed use → work/study + entertainment"}, {"part": "Part 1", "topic": "Websites", "q": "What is your favourite website?", "en": "YouTube is probably my favourite because I can use it for both entertainment and learning. I can watch something relaxing, but I can also find tutorials when I need help with something.", "zh": "YouTube 應該算是我最喜歡的網站，因為它既可以娛樂也可以學習。我可以看一些放鬆的影片，也可以在需要時找教學。", "core": "YouTube → fun + learning → useful in different moods"}, {"part": "Part 1", "topic": "Websites", "q": "Do you prefer getting information from websites or from books?", "en": "For daily information, I prefer websites because they are faster and easier to update. For something I want to understand deeply, books can still be better because the information is usually more organised.", "zh": "日常資訊我比較喜歡網站，因為速度快、更新也容易。如果是想深入理解的內容，書還是比較好，因為資訊通常更有系統。", "core": "web = speed → books = depth"}, {"part": "Part 1", "topic": "Websites", "q": "Are there any websites you use every day?", "en": "Yes. I use Google and YouTube almost every day. Google helps me find information quickly, while YouTube is usually where I go when I want to relax or learn something visually.", "zh": "有。我幾乎每天都會用 Google 和 YouTube。Google 可以快速找資料，而 YouTube 通常是我想放鬆或用影片學東西時會去的地方。", "core": "daily websites → different purposes"}, {"part": "Part 1", "topic": "Morning Time", "q": "Do you like getting up early in the morning?", "en": "Not at all. I really need enough sleep, so waking up early is probably one of my least favourite parts of a workday.", "zh": "完全不喜歡。我真的很需要睡眠，所以早起大概是上班日最不喜歡的事情之一。", "core": "no → need sleep → workday difficulty"}, {"part": "Part 1", "topic": "Morning Time", "q": "What do you usually do in the morning?", "en": "On weekdays, I get ready for work and leave home quite quickly. I usually buy something to drink on the way, and then I start my workday.", "zh": "平日早上我會準備上班，通常很快就出門。路上我常會買個飲料，然後開始一天的工作。", "core": "get ready → drink → work"}, {"part": "Part 1", "topic": "Morning Time", "q": "What did you usually do in the morning when you were a child?", "en": "My mornings were much simpler when I was a child. I just got ready for school, had something to eat and waited for my family to take me or tell me it was time to leave.", "zh": "小時候早上簡單很多。我就是準備上學、吃點東西，然後等家人帶我出門，或提醒我該走了。", "core": "childhood → simpler routine → family support"}, {"part": "Part 1", "topic": "Morning Time", "q": "Are your mornings different now from when you were younger?", "en": "Yes, definitely. I have much more responsibility now because I need to manage my own time and make sure I get to work on time. As a child, adults handled most of that for me.", "zh": "差很多。現在我要自己管理時間，也要確保準時上班，所以責任更多。小時候這些事情大多都是大人幫我處理。", "core": "more responsibility now → manage own time"}, {"part": "Part 1", "topic": "Morning Time", "q": "Are your weekend mornings different from your weekday mornings?", "en": "Completely different. On weekdays I need to follow a schedule, but at weekends I usually sleep until I wake up naturally if I have no plans.", "zh": "完全不一樣。平日要照固定時間走，但週末如果沒有安排，我通常會直接睡到自然醒。", "core": "weekday = schedule → weekend = freedom"}, {"part": "Part 2", "topic": "Organizing a Happy Event", "q": "Describe a time when you organized a happy event successfully.", "cue": ["What the event was", "How you prepared for it", "Who helped you to organize it", "And explain why you think it was a successful event"], "en": "One event I organised successfully was a small birthday dinner for one of my close friends. I wanted it to feel special without making it too complicated, so I first asked a few friends when they were free and then booked a restaurant that everyone liked. I also prepared a small cake and asked another friend to help me keep the plan secret. Before the dinner, we divided the jobs. I handled the booking and timing, while my friend picked up the cake and made sure the birthday person arrived at the right time. The event was quite simple, but it went smoothly. Everyone arrived on time, the surprise worked, and the birthday person looked genuinely happy. For me, that was the reason it felt successful. A good event does not need to be huge or expensive. If people feel comfortable, enjoy being together and leave with a good memory, the organisation has already done its job.", "zh": "我曾經成功安排過一次朋友的小型生日聚餐。我希望它有一點特別，但又不要弄得太複雜，所以我先問幾個朋友哪天有空，接著訂了一間大家都喜歡的餐廳。我也準備了一個小蛋糕，並請另一個朋友幫忙保密。聚餐前，我們把工作分好。我負責訂位和時間安排，另一位朋友去拿蛋糕，也負責確保壽星在正確的時間出現。整個活動其實很簡單，但進行得很順利。大家都有準時到，驚喜也成功，而且壽星看起來真的很開心。對我來說，這就是它成功的原因。一個好的活動不需要很大或很貴，只要大家相處舒服、玩得開心，而且最後留下好回憶，就已經很成功了。", "core": "simple planning → clear roles → smooth event → happy memory"}, {"part": "Part 3", "topic": "Organizing Activities", "q": "Do you prefer to prepare and organize an activity or just take part in an activity?", "en": "I usually prefer taking part because it is less stressful. When someone else organises everything, I can focus on enjoying the event instead of worrying about timing or small problems. However, I am happy to help if the group needs me.", "zh": "我通常比較喜歡直接參加，因為壓力比較小。當別人負責安排時，我可以專心享受活動，不需要一直擔心時間或小問題。不過如果團體需要，我也很願意幫忙。", "core": "participate → less responsibility → enjoy more"}, {"part": "Part 3", "topic": "Organizing Activities", "q": "How would you feel when you were not well prepared for something?", "en": "I would feel quite anxious because uncertainty makes me uncomfortable. For example, if I had an important presentation without enough preparation, I would keep worrying about forgetting something. Better preparation usually gives me more confidence.", "zh": "我會滿焦慮的，因為不確定感會讓我不舒服。例如重要簡報如果沒有準備好，我會一直擔心自己漏掉什麼。準備得越完整，通常就越有自信。", "core": "poor preparation → uncertainty → anxiety"}, {"part": "Part 3", "topic": "Organizing Activities", "q": "Do people need others’ help when organizing things?", "en": "Yes, especially for larger activities. One person cannot notice every detail, so sharing tasks makes the work faster and reduces mistakes. For example, one person can manage the place while another handles food or guests.", "zh": "需要，尤其是比較大型的活動。一個人不可能注意到所有細節，所以分工可以讓事情更快，也能減少錯誤。例如一個人負責場地，另一個人負責食物或來賓。", "core": "more people → divide tasks → fewer mistakes"}, {"part": "Part 3", "topic": "Organizing Activities", "q": "Does everything need to be well prepared?", "en": "No. Preparation matters when a mistake could create a serious problem, but small daily activities can stay flexible. For example, a business meeting needs a clear plan, while a casual weekend with friends does not need every minute arranged.", "zh": "不用。當錯誤可能造成嚴重問題時，準備很重要，但日常小活動可以保留彈性。例如商務會議需要清楚規劃，但朋友週末出去玩不需要每分鐘都排好。", "core": "important events need planning → casual events need flexibility"}, {"part": "Part 3", "topic": "Organizing Activities", "q": "On what occasions do people need to be organized?", "en": "People need to be especially organised when many people or deadlines are involved. Weddings, work projects and trips are good examples because one missed detail can affect everyone else. Clear planning keeps the whole group moving in the same direction.", "zh": "當事情牽涉很多人或有明確期限時，特別需要有組織。婚禮、工作專案和旅行都是很好的例子，因為漏掉一個細節就可能影響其他人。清楚規劃可以讓整個團體朝同一方向進行。", "core": "many people/deadlines → coordination matters"}, {"part": "Part 3", "topic": "Organizing Activities", "q": "How can parents help children to be organized?", "en": "Parents can give children small responsibilities instead of doing everything for them. For example, a child can prepare their own school bag the night before. Repeating simple routines helps them learn to plan ahead and gradually become more independent.", "zh": "父母可以給孩子一些小責任，而不是全部幫他們做。例如可以讓孩子前一天晚上自己整理書包。重複這些簡單習慣，可以讓他們學會提前規劃，也會慢慢更獨立。", "core": "small responsibility → routine → planning habit → independence"}],
+  "2026-09-01": [{"part": "Part 1", "topic": "Teachers", "q": "Do you want to be a teacher in the future?", "en": "Probably not. I like explaining things to people, but being a teacher needs a lot of patience and energy every day. I would rather work in a field where I can solve technical problems.", "zh": "應該不會。我喜歡跟別人解釋事情，但當老師每天都需要很多耐心和精力。我想我還是比較喜歡可以解決技術問題的工作。", "core": "No → teaching needs patience → I prefer technical work."}, {"part": "Part 1", "topic": "Teachers", "q": "Do you have a teacher from your past that you still remember?", "en": "Yes. I still remember one of my high school teachers because she was very patient with students. When we did not understand something, she would explain it again instead of making us feel embarrassed.", "zh": "有。我到現在還記得一位高中老師，因為她對學生很有耐心。我們聽不懂時，她會再解釋一次，而不是讓我們覺得很丟臉。", "core": "patient teacher → safe to ask → stronger memory"}, {"part": "Part 1", "topic": "Teachers", "q": "Are you still in touch with your primary school teachers?", "en": "No, not really. It has been many years, and everyone has moved on with their own life. But I still remember a few of them when I think about my childhood.", "zh": "沒有，現在幾乎沒有聯絡。已經過很多年了，大家也都有自己的生活。不過想到童年時，我還是會記得其中幾位老師。", "core": "No → many years passed → still remember them"}, {"part": "Part 1", "topic": "Teachers", "q": "In what way has your favourite teacher helped you?", "en": "My favourite teacher helped me become more confident. She never made me feel stupid when I asked a simple question, so I became less afraid of making mistakes and more willing to speak up.", "zh": "我最喜歡的老師讓我變得更有自信。當我問很簡單的問題時，她從來不會讓我覺得自己很笨，所以我後來比較不怕犯錯，也更敢開口。", "core": "safe environment → less fear → more confidence"}, {"part": "Part 2", "topic": "A person who is good at learning languages", "q": "Describe a person you know who is good at learning languages.", "cue": ["who this person is", "what languages this person can speak", "how you know this person", "and explain why you think this person is good at learning languages"], "en": "I would like to talk about one of my university friends, who is probably the best language learner I know. She can speak Mandarin and English very well, and she has also learned some Japanese and Korean. I met her at university because we took some of the same classes and later became friends. What impressed me most was not just the number of languages she knew, but the way she learned them. She was never afraid of sounding silly. If she learned a new word, she would try to use it in a real conversation almost immediately. She also watched videos, listened to songs and followed social media in different languages, so learning was part of her daily life instead of something she only did from a textbook. That is why she improved so quickly. She used the language before she felt completely ready. Watching her also changed the way I look at language learning. I realised that making mistakes is not a sign that you are bad at a language. It is actually part of becoming better at it.", "zh": "我想介紹一位大學朋友，她大概是我認識的人裡最會學語言的。她中文和英文都很好，也學過一些日文和韓文。我們是在大學因為修到一些相同的課而認識，後來成為朋友。最讓我印象深刻的不是她會多少種語言，而是她學語言的方法。她完全不怕講錯。每次學到一個新單字，她幾乎馬上就會試著在真實對話中使用。她也會看不同語言的影片、聽歌、追社群媒體，所以學語言不是只有坐在書桌前念課本，而是她生活的一部分。我覺得這就是她進步這麼快的原因。她不會等到自己完全準備好才使用語言。看著她也改變了我對語言學習的想法。我發現犯錯不代表語言很差，反而就是進步過程的一部分。", "core": "She uses the language before she feels ready."}, {"part": "Part 3", "topic": "Language Learning", "q": "What qualities are needed to learn a foreign language well?", "en": "The most important quality is not being afraid of mistakes. Language is a practical skill, so people need to actually use it. For example, someone who speaks imperfectly every day may improve faster than someone who studies grammar but never speaks. More practice usually leads to more confidence.", "zh": "我覺得最重要的特質是不怕犯錯。語言是一個實際技能，所以一定要真的使用。例如一個每天都用不完美的英文開口的人，可能會比只讀文法但從不說話的人進步更快。練習越多，通常就越有自信。", "core": "less fear → more speaking → more feedback → faster improvement"}, {"part": "Part 3", "topic": "Language Learning", "q": "At what age should children start learning a foreign language?", "en": "Children can start quite young, maybe in primary school, as long as the learning is natural and not stressful. Simple songs, games and short conversations can help them become familiar with the sound of the language. If learning feels enjoyable, they are more likely to continue.", "zh": "我覺得可以從滿小的時候開始，例如小學，只要學習方式自然、不要有太大壓力。簡單的歌曲、遊戲和短對話可以先讓孩子熟悉語言的聲音。如果學習是好玩的，他們也比較願意持續下去。", "core": "start young → keep it fun → build familiarity → continue longer"}, {"part": "Part 3", "topic": "Language Learning", "q": "Is it easier for children to learn a foreign language than adults?", "en": "In many cases, yes, because children are usually less afraid of sounding wrong. Adults often stop themselves because they want to speak perfectly. A child may simply copy a new phrase and try it immediately, so they get much more practice.", "zh": "很多情況下是，因為孩子通常比較不怕講錯。成年人常因為想要講得很完美而不敢開口，但孩子可能聽到一句新的話就直接模仿，所以練習量反而更多。", "core": "children fear mistakes less → try more → get more practice"}, {"part": "Part 3", "topic": "Language Learning", "q": "What are the benefits of learning a foreign language?", "en": "One major benefit is that it gives people direct access to another culture. For example, if you understand the language, you can talk to local people instead of depending completely on translations. That can make travel and international relationships much deeper.", "zh": "一個很大的好處是可以直接接觸另一種文化。例如如果你懂當地語言，就可以直接跟當地人聊天，而不是完全依賴翻譯。這會讓旅行和跨文化關係都更深入。", "core": "language → direct communication → deeper cultural understanding"}, {"part": "Part 3", "topic": "Language Learning", "q": "Why are some people better at learning languages than others?", "en": "Some people are better because they are more willing to use the language regularly. Natural talent may help, but daily exposure matters more over time. Someone who listens, reads and speaks a little every day is constantly training their brain to recognise patterns.", "zh": "我覺得有些人比較會學語言，是因為他們更願意固定使用。天分可能有幫助，但長期來看每天接觸更重要。如果一個人每天都聽、讀、說一點，大腦就會一直練習辨認語言的規律。", "core": "regular exposure → recognise patterns → faster learning"}, {"part": "Part 3", "topic": "Language Learning", "q": "Will translation technology reduce the need to learn foreign languages in the future?", "en": "It may reduce the need in simple situations, but I do not think it will replace language learning completely. A translation app can tell you the meaning of a sentence, but it cannot always show humour, emotion or cultural meaning. If people want a real relationship, knowing the language still makes communication much more natural.", "zh": "在簡單情況下可能會降低需求，但我不覺得它會完全取代語言學習。翻譯工具可以告訴你句子的意思，但不一定能完整傳達幽默、情緒或文化含義。如果人們想建立真正的關係，懂對方的語言還是會讓溝通自然很多。", "core": "translation gives meaning → language gives connection"}],
+  "2026-09-03": [{"part": "Part 1", "topic": "Rules", "q": "Do you prefer to have more or fewer rules at school?", "en": "Fewer, but the important rules should stay. Too many small rules can make students feel controlled, while clear rules about safety and respect are still necessary.", "zh": "我比較希望規則少一點，但重要的規則還是要保留。太多小規定會讓學生覺得被限制，不過安全和尊重相關的規則還是很必要。", "core": "fewer rules → less pressure → keep safety/respect rules"}, {"part": "Part 1", "topic": "Rules", "q": "Have you ever had a really dedicated teacher?", "en": "Yes. I had a teacher who was very patient and always explained things again when students were confused. That made the class feel much safer to ask questions in.", "zh": "有。我以前有一位老師非常有耐心，學生聽不懂時他會再解釋一次。這讓大家在課堂上更敢問問題。", "core": "patient teacher → students feel safe → ask more questions"}, {"part": "Part 1", "topic": "Rules", "q": "Do you think students would benefit more from more rules?", "en": "Not necessarily. More rules do not always create better behaviour. Students may learn more when the rules are simple and they understand why those rules exist.", "zh": "不一定。規則變多不代表行為一定會變好。如果規則簡單，而且學生知道為什麼要有這些規則，通常更有用。", "core": "more rules ≠ better behaviour → clear reason matters"}, {"part": "Part 1", "topic": "Rules", "q": "Are there any rules for students at your school?", "en": "Yes, there were basic rules about being on time, wearing the right uniform and respecting teachers. They were quite normal, so most students were already used to them.", "zh": "有，像是準時、穿正確制服和尊重老師這些基本規定。這些都很普通，所以大部分學生早就習慣了。", "core": "basic school rules → normal → easy to follow"}, {"part": "Part 1", "topic": "Public Places", "q": "Do you wear headphones in public places?", "en": "Yes, quite often, especially when I am on public transport. Music helps me relax, but I usually keep the volume low so I can still notice what is happening around me.", "zh": "會，尤其搭大眾運輸時很常戴。音樂可以讓我放鬆，不過我通常不會開太大聲，這樣還是能注意周圍的情況。", "core": "yes → relax with music → stay aware"}, {"part": "Part 1", "topic": "Public Places", "q": "Have you ever talked with someone you don’t know in public places?", "en": "Yes, but usually only for a simple reason, like asking for directions or checking whether I am in the right line. I do not normally start long conversations with strangers.", "zh": "有，但通常只是很簡單的原因，例如問路或確認自己有沒有排對隊。我平常不太會主動和陌生人聊很久。", "core": "yes → practical reason → not long conversations"}, {"part": "Part 1", "topic": "Public Places", "q": "Do you often go to public places with your friends?", "en": "Yes. We often meet in department stores or shopping areas because we can eat, walk around and talk in the same place. It is simple and convenient for everyone.", "zh": "會。我和朋友常在百貨公司或商圈見面，因為可以一起吃飯、逛逛和聊天，對大家都很方便。", "core": "yes → shopping areas → many activities in one place"}, {"part": "Part 1", "topic": "Public Places", "q": "Would you like to see more public places near where you live?", "en": "Yes, especially more comfortable parks or open spaces. They would give people somewhere to walk, sit and relax without needing to spend money.", "zh": "會，尤其希望有更多舒服的公園或開放空間。這樣大家不用花錢，也可以有地方散步、坐著或放鬆。", "core": "more parks → free space → walk/rest"}, {"part": "Part 1", "topic": "Growing Vegetables / Fruits", "q": "Should schools teach students how to grow vegetables?", "en": "Yes, at least as a small practical activity. Students can learn where food comes from, and taking care of a plant also teaches patience and responsibility.", "zh": "可以，至少當成一個小型實作活動。學生可以知道食物從哪裡來，而且照顧植物也能學到耐心和責任感。", "core": "practical activity → understand food → responsibility"}, {"part": "Part 1", "topic": "Growing Vegetables / Fruits", "q": "Do you think it’s easy to grow vegetables?", "en": "Not for me. You need to understand watering, sunlight and sometimes insects, so there are quite a few things to remember. I would probably forget one of them.", "zh": "對我來說不容易。要注意澆水、日照，有時還要處理蟲害，所以其實有滿多事情要記，我大概會忘掉其中一個。", "core": "not easy → several things to manage → easy to forget"}, {"part": "Part 1", "topic": "Growing Vegetables / Fruits", "q": "Do many people grow vegetables in your city?", "en": "Not many, mainly because most people live in apartments and do not have much outdoor space. Some people may grow a few small plants on a balcony, though.", "zh": "不算多，主要是很多人住公寓，沒有太多戶外空間。不過有些人可能會在陽台種幾株小植物。", "core": "apartments → limited space → only small-scale growing"}, {"part": "Part 1", "topic": "Growing Vegetables / Fruits", "q": "Is growing vegetables popular in your country?", "en": "It is more common in rural areas than in big cities. People who have more land can grow vegetables more easily, while city residents usually buy them from markets or supermarkets.", "zh": "鄉村地區比大城市常見。有土地的人比較容易自己種菜，城市居民通常還是直接去市場或超市買。", "core": "rural > urban → land makes it easier"}, {"part": "Part 1", "topic": "Growing Vegetables / Fruits", "q": "Are you interested in growing vegetables and fruits?", "en": "Not really. I like eating fresh fruit and vegetables, but taking care of plants is not something I enjoy. I would rather buy them and leave the growing to someone more patient.", "zh": "不太有興趣。我喜歡吃新鮮蔬果，但我不喜歡照顧植物。我比較願意直接買，把種植交給更有耐心的人。", "core": "like eating them → dislike plant care → prefer buying"}, {"part": "Part 2", "topic": "First Time Using a Foreign Language", "q": "Describe the time when you first talked in a foreign language.", "cue": ["Where you were", "Who you were with", "What you talked about", "And explain how you felt about it"], "en": "The first time I clearly remember having a real conversation in English was during my university summer exchange in Rhode Island in the United States. Before that, I had studied English for years, but most of it happened in classrooms or exams. During the exchange, I had to use English with people I had never met before. One conversation I remember was with another student after class. We talked about where we were from, what we were studying and what we wanted to do during the exchange. The topic itself was very simple, but I was surprisingly nervous because there was no teacher and no prepared answer. I had to listen, understand and respond immediately. I made some grammar mistakes and probably paused too much, but the other person still understood me and the conversation continued normally. That moment gave me a lot of confidence. I realised that real communication does not need perfect English. If the other person can understand what I mean, the conversation is already working. After that, I became much more willing to speak English with people instead of waiting until every sentence sounded perfect.", "zh": "我印象中第一次真正用英文和別人對話，是大學暑期去美國羅德島交換的時候。在那之前我已經學英文很多年，但大多是在教室或考試裡。交換期間，我必須真的用英文和不認識的人溝通。我記得有一次下課後和另一位學生聊天，我們談彼此來自哪裡、念什麼科系，以及交換期間想做什麼。話題本身很簡單，但我意外地很緊張，因為現場沒有老師，也沒有準備好的答案，我必須立刻聽懂並回應。我有一些文法錯誤，可能也停頓太多，但對方還是聽懂了，而且對話很自然地繼續。那次經驗讓我增加很多自信。我發現真正的溝通不需要完美英文，只要對方能理解我的意思，溝通其實就已經成功了。之後我就更願意直接用英文和人說話，而不是等到每一句都完全正確才開口。", "core": "classroom English → real conversation → nervous but understood → confidence"}, {"part": "Part 3", "topic": "Foreign Languages", "q": "Do you think minority languages will disappear?", "en": "Some of them probably will, especially if younger people stop using them in daily life. A language survives through regular use, so when children only speak a dominant language at school and online, the smaller language can slowly disappear.", "zh": "有些可能會，尤其當年輕人不再在日常生活中使用時。語言需要靠持續使用才能存在，如果孩子在學校和網路上都只使用主流語言，小語言就可能慢慢消失。", "core": "less daily use → fewer young speakers → language disappears"}, {"part": "Part 3", "topic": "Foreign Languages", "q": "Does a person still need to learn other languages if he or she is good at English?", "en": "Yes, because English can help with communication, but another language gives much deeper access to a culture. For example, speaking the local language can make conversations with local people more natural and personal.", "zh": "需要。英文可以幫助溝通，但另一種語言可以讓人更深入接觸文化。例如會說當地語言時，和當地人的交流通常會更自然、更有個人連結。", "core": "English = communication → local language = deeper connection"}, {"part": "Part 3", "topic": "Foreign Languages", "q": "Which skill is more important, speaking or writing?", "en": "For everyday communication, speaking is usually more important because people need it for immediate interaction. If someone travels or works with international colleagues, being able to explain an idea clearly can solve a problem straight away. Writing still matters, but it is often easier to revise.", "zh": "日常溝通來說，口說通常更重要，因為它用在即時互動。如果旅行或和國際同事工作，能立刻把想法說清楚就可以直接解決問題。寫作也重要，但通常還有時間修改。", "core": "speaking → immediate interaction → solves problems quickly"}, {"part": "Part 3", "topic": "Foreign Languages", "q": "Why do some people find it difficult to learn a foreign language?", "en": "Fear of making mistakes is a major reason. Some learners know quite a lot of vocabulary and grammar, but they hesitate every time they need to speak. Because they practise less, improvement becomes slower and the fear gets even stronger.", "zh": "害怕犯錯是一個很大的原因。有些人其實知道不少單字和文法，但每次要開口就會猶豫。因為實際練習變少，進步速度也會變慢，最後反而更害怕。", "core": "fear → less practice → slower progress → more fear"}, {"part": "Part 3", "topic": "Foreign Languages", "q": "At what age should children start learning another language?", "en": "Primary-school age is a good time, as long as the learning stays enjoyable. Songs, games and simple conversations can help children get used to the sound of a language without making it feel like another difficult exam subject.", "zh": "小學階段是滿好的時間，只要學習方式保持有趣。歌曲、遊戲和簡單對話可以讓孩子熟悉語言的聲音，而不會覺得它只是另一個很難的考試科目。", "core": "start young → fun exposure → natural familiarity"}, {"part": "Part 3", "topic": "Foreign Languages", "q": "Do you think technology will make foreign-language learning less necessary in the future?", "en": "It may make basic communication easier, but it will not remove the need completely. Translation tools can give the meaning of a sentence, but they may miss humour, emotion or cultural details. For real relationships, knowing the language still makes communication much more natural.", "zh": "科技可能會讓基本溝通更容易，但不會完全消除學語言的需要。翻譯工具可以提供句子的意思，但可能漏掉幽默、情緒或文化細節。要建立真正的關係，懂對方語言仍然會讓溝通自然很多。", "core": "technology helps meaning → language keeps emotion/culture/connection"}]
+};
+
+const dailyDate=document.getElementById("dailyDate");
+const dailyEmpty=document.getElementById("dailyEmpty");
+const dailyContent=document.getElementById("dailyContent");
+const mockPart=document.getElementById("mockPart");
+const mockTopic=document.getElementById("mockTopic");
+const mockProgress=document.getElementById("mockProgress");
+const mockQuestion=document.getElementById("mockQuestion");
+const mockCue=document.getElementById("mockCue");
+const mockAnswer=document.getElementById("mockAnswer");
+const mockEn=document.getElementById("mockEn");
+const mockZh=document.getElementById("mockZh");
+const mockCore=document.getElementById("mockCore");
+const mockReveal=document.getElementById("mockReveal");
+
+let dailyPool=[];
+let dailyIndex=0;
+let dailyMode="exam";
+
+const timerHint=document.getElementById("timerHint");
+const timerValue=document.getElementById("timerValue");
+const timerState=document.getElementById("timerState");
+const timerStart=document.getElementById("timerStart");
+const part2TimerModes=document.getElementById("part2TimerModes");
+let timerSeconds=20;
+let timerDefault=20;
+let timerRunning=false;
+let timerId=null;
+
+function formatTimer(s){
+  s=Math.max(0,Math.floor(s));
+  return `${String(Math.floor(s/60)).padStart(2,"0")}:${String(s%60).padStart(2,"0")}`;
+}
+function stopDailyTimer(){
+  if(timerId) clearInterval(timerId);
+  timerId=null;
+  timerRunning=false;
+  timerStart.textContent="開始";
+}
+function setDailyTimer(seconds,hint){
+  stopDailyTimer();
+  timerDefault=seconds;
+  timerSeconds=seconds;
+  timerValue.textContent=formatTimer(seconds);
+  timerHint.textContent=hint;
+  timerState.textContent="準備好再開始";
+}
+function configureTimer(card){
+  if(card.part==="Opening"){
+    part2TimerModes.classList.remove("show");
+    setDailyTimer(10,"Opening｜簡短回答");
+  }else if(card.part==="Part 1"){
+    part2TimerModes.classList.remove("show");
+    setDailyTimer(20,"Part 1｜20 秒");
+  }else if(card.part==="Part 2"){
+    part2TimerModes.classList.add("show");
+    setDailyTimer(60,"Part 2｜準備 1 分鐘");
+  }else{
+    part2TimerModes.classList.remove("show");
+    setDailyTimer(40,"Part 3｜40 秒");
+  }
+}
+const OLD_BANK_CUTOFF = 209;
+
+function makePracticeCard(x){
+  return {
+    part:x.part,
+    topic:x.topic,
+    q:x.q,
+    en:x.en,
+    zh:x.zh,
+    core:x.key || "",
+    cue:null
+  };
+}
+
+function getDayCards(){
+  if(dailyDate.value==="old-bank"){
+    return data.slice(0,OLD_BANK_CUTOFF).map(makePracticeCard);
+  }
+  if(dailyDate.value==="all-bank"){
+    return data.map(makePracticeCard);
+  }
+  return dailyMocks[dailyDate.value] || [];
+}
+function getPoolByMode(){
+  const all=getDayCards();
+  if(dailyMode==="p1") return all.filter(x=>x.part==="Part 1");
+  if(dailyMode==="p2") return all.filter(x=>x.part==="Part 2");
+  if(dailyMode==="p3") return all.filter(x=>x.part==="Part 3");
+  return all;
+}
+function setDailyMode(mode){
+  dailyMode=mode;
+  document.querySelectorAll(".daily-mode").forEach(b=>b.classList.remove("active"));
+  const map={
+    exam:"dailyExamMode",
+    random:"dailyRandomMode",
+    p1:"dailyPart1Random",
+    p2:"dailyPart2Random",
+    p3:"dailyPart3Random"
+  };
+  document.getElementById(map[mode]).classList.add("active");
+  dailyPool=getPoolByMode();
+  dailyIndex=0;
+  if(mode!=="exam" && dailyPool.length){
+    dailyIndex=Math.floor(Math.random()*dailyPool.length);
+  }
+  renderDailyCard();
+}
+function renderDailyCard(){
+  const all=getDayCards();
+  if(!all.length){
+    stopDailyTimer();
+    dailyEmpty.classList.add("show");
+    dailyContent.style.display="none";
+    return;
+  }
+  dailyEmpty.classList.remove("show");
+  dailyContent.style.display="grid";
+  dailyPool=getPoolByMode();
+  if(!dailyPool.length){
+    dailyContent.style.display="none";
+    dailyEmpty.textContent="這一天沒有這個 Part 的題目。";
+    dailyEmpty.classList.add("show");
+    return;
+  }
+  if(dailyIndex>=dailyPool.length) dailyIndex=0;
+  const c=dailyPool[dailyIndex];
+  mockPart.textContent=c.part;
+  mockTopic.textContent=c.topic;
+  const sourceLabel =
+    dailyDate.value==="old-bank" ? "8/31 前舊題庫" :
+    dailyDate.value==="all-bank" ? "全部累積題庫" :
+    dailyDate.options[dailyDate.selectedIndex].textContent.trim();
+
+  mockProgress.textContent=dailyMode==="exam"
+    ? `${sourceLabel} · ${dailyIndex+1} / ${dailyPool.length}`
+    : `${sourceLabel} · 隨機 · ${dailyPool.length} 題`;
+  mockQuestion.textContent=c.q;
+
+  if(c.cue && c.cue.length){
+    mockCue.innerHTML="<b>You should say:</b><ul>"+c.cue.map(x=>`<li>${esc(x)}</li>`).join("")+"</ul>";
+    mockCue.style.display="block";
+  }else{
+    mockCue.innerHTML="";
+    mockCue.style.display="none";
+  }
+
+  mockEn.textContent=c.en;
+  mockZh.textContent=c.zh;
+  mockCore.textContent=c.core || "先自己抓：Conclusion → WHY → tiny example → consequence";
+  mockAnswer.classList.remove("show");
+  mockReveal.textContent="看答案";
+  configureTimer(c);
+}
+function pickAnotherDaily(){
+  if(!dailyPool.length) return;
+  if(dailyPool.length===1){dailyIndex=0;return;}
+  let n=dailyIndex;
+  while(n===dailyIndex) n=Math.floor(Math.random()*dailyPool.length);
+  dailyIndex=n;
+}
+
+dailyDate.addEventListener("change",()=>{
+  dailyMode="exam";
+  document.querySelectorAll(".daily-mode").forEach(b=>b.classList.remove("active"));
+  document.getElementById("dailyExamMode").classList.add("active");
+  dailyPool=getDayCards();
+  dailyIndex=0;
+  renderDailyCard();
+});
+
+document.getElementById("dailyExamMode").addEventListener("click",()=>setDailyMode("exam"));
+document.getElementById("dailyRandomMode").addEventListener("click",()=>setDailyMode("random"));
+document.getElementById("dailyPart1Random").addEventListener("click",()=>setDailyMode("p1"));
+document.getElementById("dailyPart2Random").addEventListener("click",()=>setDailyMode("p2"));
+document.getElementById("dailyPart3Random").addEventListener("click",()=>setDailyMode("p3"));
+
+document.getElementById("mockNext").addEventListener("click",()=>{
+  if(dailyMode==="exam") dailyIndex=(dailyIndex+1)%dailyPool.length;
+  else pickAnotherDaily();
+  renderDailyCard();
+});
+document.getElementById("mockPrev").addEventListener("click",()=>{
+  if(dailyMode==="exam") dailyIndex=(dailyIndex-1+dailyPool.length)%dailyPool.length;
+  else pickAnotherDaily();
+  renderDailyCard();
+});
+mockReveal.addEventListener("click",()=>{
+  const show=!mockAnswer.classList.contains("show");
+  mockAnswer.classList.toggle("show",show);
+  mockReveal.textContent=show?"隱藏答案":"看答案";
+});
+
+timerStart.addEventListener("click",()=>{
+  if(timerRunning){
+    stopDailyTimer();
+    timerState.textContent="已暫停";
+    return;
+  }
+  if(timerSeconds<=0){
+    timerSeconds=timerDefault;
+    timerValue.textContent=formatTimer(timerSeconds);
+  }
+  timerRunning=true;
+  timerStart.textContent="暫停";
+  timerState.textContent="計時中…";
+  timerId=setInterval(()=>{
+    timerSeconds--;
+    timerValue.textContent=formatTimer(timerSeconds);
+    if(timerSeconds<=0){
+      timerSeconds=0;
+      stopDailyTimer();
+      timerValue.textContent="00:00";
+      timerState.textContent="時間到！";
+    }
+  },1000);
+});
+document.getElementById("timerReset").addEventListener("click",()=>{
+  stopDailyTimer();
+  timerSeconds=timerDefault;
+  timerValue.textContent=formatTimer(timerSeconds);
+  timerState.textContent="已重設";
+});
+document.getElementById("timerPrep").addEventListener("click",()=>{
+  setDailyTimer(60,"Part 2｜準備 1 分鐘");
+});
+document.getElementById("timerSpeak").addEventListener("click",()=>{
+  setDailyTimer(120,"Part 2｜作答 2 分鐘");
+});
+
+dailyPool=getDayCards();
+renderDailyCard();
 
 render();
 </script>
