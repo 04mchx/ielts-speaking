@@ -126,6 +126,32 @@ details[open] .chev{transform:rotate(180deg)}
 .today-line{margin-top:12px;border-left:4px solid var(--accent);padding:10px 12px;background:var(--accent-soft);border-radius:8px;line-height:1.6}
 @media(max-width:680px){.strategy-grid{grid-template-columns:1fr}}
 
+
+.part2-bank{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:18px;box-shadow:var(--shadow)}
+.part2-bank-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.part2-bank h2{font-size:18px;margin:0 0 6px}.part2-bank p{margin:0;color:var(--muted);line-height:1.6}
+.part2-bank-top button{border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 12px;font-weight:700;cursor:pointer}
+.idea-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}
+.idea-card{border:1px solid var(--line);border-radius:12px;background:#fafbff;overflow:hidden}
+.idea-head{width:100%;border:0;background:transparent;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px;text-align:left;font-weight:800;cursor:pointer;color:var(--text)}
+.idea-head:hover{background:var(--accent-soft)}.idea-toggle{font-size:12px;color:var(--muted);font-weight:700}
+.idea-body{padding:0 12px 12px;line-height:1.62}.idea-core{background:var(--accent-soft);border-radius:9px;padding:10px;margin-bottom:9px}
+.idea-line{margin-top:8px}.idea-line b,.idea-reuse b{color:var(--muted);font-size:12px;letter-spacing:.03em;text-transform:uppercase}
+.idea-reuse{margin-top:10px;padding-top:9px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.part2-bank-rule{margin-top:14px;border-left:4px solid var(--accent);background:var(--accent-soft);padding:10px 12px;border-radius:8px;line-height:1.6}
+@media(max-width:680px){.idea-grid{grid-template-columns:1fr}}
+
+
+.example-box{margin-top:12px;border:1px solid var(--line);border-radius:10px;padding:11px;background:#fff}
+.example-title{font-weight:850;margin-bottom:8px}
+.example-detail{line-height:1.6;margin-top:6px}
+.example-detail b,.example-answer b{font-size:12px;color:var(--muted);letter-spacing:.03em}
+.example-answer{margin-top:10px;padding:10px;border-radius:8px;background:var(--accent-soft);line-height:1.68}
+.example-answer b{display:block;margin-bottom:4px}
+
+
+.part2-example-index{margin-top:12px;padding:10px 12px;border-radius:10px;background:var(--accent-soft);line-height:1.65}
+
 </style>
 </head>
 <body>
@@ -178,8 +204,237 @@ details[open] .chev{transform:rotate(180deg)}
       <span class="story-chip">IELTS＋研究所：goal／progress</span>
       <span class="story-chip">手機／電腦：technology／efficiency</span>
     </div>
-    <div class="today-line"><b>9/19 今日最後主線：</b> Good problem-solving starts with the root cause, not the first symptom.</div>
+    <div class="today-line"><b>9/19 今日最後主線：</b> Good problem-solving starts with the root cause, not the first symptom.<br><b>Part 2 快速分類：</b> 人物＝特質如何影響別人｜別人送禮＝被理解｜食物＝味道＋人＋情境｜衣服＝舒服／個性｜物品＝減少麻煩｜地方＝改變狀態｜活動＝共同情緒｜技能＝讓我更獨立。</div>
   </section>
+
+
+<section class="part2-bank" id="part2IdeaBank">
+  <div class="part2-bank-top">
+    <div>
+      <h2>🧩 Part 2 萬用觀點庫｜人物・禮物・食物・衣服</h2>
+      <p>先判斷題型，再套固定觀點。每一類都已補上「具體例子＋長相／情境＋為什麼＋可直接說的版本」，不用再自己臨時想故事。</p>
+    </div>
+    <button id="expandIdeaBank" type="button">全部展開</button>
+  </div>
+  
+  <div class="part2-example-index">
+    <b>你只要先記這 10 個固定例子：</b>
+    爸爸｜畢業花束｜送男友玫瑰｜韓式烤肉｜深藍 hoodie｜筆電｜自己的房間｜畢業典禮｜爸爸教騎腳踏車｜幫姪女解數學
+  </div>
+
+  <div class="idea-grid">
+      <article class="idea-card">
+        <button class="idea-head" type="button" aria-expanded="false">
+          <span>👤 人物 / Person</span>
+          <span class="idea-toggle">展開</span>
+        </button>
+        <div class="idea-body" hidden>
+          <div class="idea-core"><b>核心觀點</b><div>不要只形容 personality，要說「這個特質如何影響別人」。</div></div>
+          <div class="idea-line"><b>思路</b><div>trait → concrete behaviour → effect on me/others</div></div>
+          <div class="idea-line"><b>English</b><div>What makes this person memorable is not just that he is kind. He listens carefully before giving advice, so people feel respected rather than judged.</div></div>
+          <div class="idea-line"><b>中文</b><div>不要只說 He is kind。改成：他會先聽完再給建議 → 對方感覺被尊重 → 所以這個特質真的有影響。</div></div>
+          
+          <div class="example-box">
+            <div class="example-title">固定例子：爸爸</div>
+            <div class="example-detail"><b>具體長相 / 情境：</b>形象：冷靜、低調、講話不急。重點不是外貌，而是他會先聽完別人的話，再給自己的意見。</div>
+            <div class="example-detail"><b>為什麼好用：</b>為什麼好用：可以直接套 older person / person you admire / helpful person / advice / useful skill。</div>
+            <div class="example-answer"><b>可直接說的版本</b><div>My father is the person I usually use for this kind of topic. He is calm and quite low-key, and what I admire most is the way he listens before giving his opinion. That habit taught me that good communication is not about speaking more; it is about understanding the other person first.</div></div>
+          </div>
+    <div class="idea-reuse"><b>可套題型：</b>older person / helpful person / intelligent person / popular person / person you admire / person who gave you something</div>
+        </div>
+      </article>
+    
+      <article class="idea-card">
+        <button class="idea-head" type="button" aria-expanded="false">
+          <span>🎁 別人送你的禮物 / Gift from someone</span>
+          <span class="idea-toggle">展開</span>
+        </button>
+        <div class="idea-body" hidden>
+          <div class="idea-core"><b>核心觀點</b><div>重點不是禮物多貴，而是「對方有注意到你真正喜歡什麼」。</div></div>
+          <div class="idea-line"><b>思路</b><div>gift → why it matched me → showed understanding → emotional value</div></div>
+          <div class="idea-line"><b>English</b><div>The gift itself was not expensive, but it felt personal because the person had clearly noticed what I liked. That made me feel understood, which was more important than the price.</div></div>
+          <div class="idea-line"><b>中文</b><div>禮物本身不一定昂貴，但對方有注意到你的喜好，所以你感受到的是「他真的了解我」。</div></div>
+          
+          <div class="example-box">
+            <div class="example-title">固定例子：畢業時收到一束花</div>
+            <div class="example-detail"><b>具體長相 / 情境：</b>長相：玫瑰搭配一些小白花，外面用淡色包裝紙包著。你拿到後有拍很多照片。</div>
+            <div class="example-detail"><b>為什麼好用：</b>為什麼特別：畢業代表一個人生階段結束，所以真正有價值的是 timing 和 memory，不是花的價格。</div>
+            <div class="example-answer"><b>可直接說的版本</b><div>One gift I still remember is a bouquet of flowers I received at my graduation. It had roses and some small white flowers, wrapped in soft-coloured paper. What made it special was the timing. Graduation was the end of one stage of my life, so the flowers became connected with that memory. The flowers did not last very long, but the feeling did.</div></div>
+          </div>
+    <div class="idea-reuse"><b>可套題型：</b>received a gift / someone gave you something / memorable object / beautiful object / money as a gift</div>
+        </div>
+      </article>
+    
+      <article class="idea-card">
+        <button class="idea-head" type="button" aria-expanded="false">
+          <span>🎁 你送別人的禮物 / Gift you give</span>
+          <span class="idea-toggle">展開</span>
+        </button>
+        <div class="idea-body" hidden>
+          <div class="idea-core"><b>核心觀點</b><div>好的禮物不是展示花多少錢，而是證明你了解對方。</div></div>
+          <div class="idea-line"><b>思路</b><div>know the person → choose something personal → shared memory/use → meaning</div></div>
+          <div class="idea-line"><b>English</b><div>A good gift should show that you understand the person. Something connected to a shared memory can be more meaningful than a more expensive product.</div></div>
+          <div class="idea-line"><b>中文</b><div>送禮的核心不是 expensive，而是 personal。最好連到共同回憶或對方真正會用的東西。</div></div>
+          
+          <div class="example-box">
+            <div class="example-title">固定例子：送男友一束玫瑰</div>
+            <div class="example-detail"><b>具體長相 / 情境：</b>長相：紅色或粉紅色玫瑰，淺色包裝紙＋簡單緞帶，不需要很大束。</div>
+            <div class="example-detail"><b>為什麼好用：</b>為什麼送：你本來就喜歡玫瑰，而且希望禮物有感情，不只是貴。重點是「我有認真想過這個禮物」。</div>
+            <div class="example-answer"><b>可直接說的版本</b><div>I once gave my boyfriend a bouquet of roses. It was quite simple, with red and pink roses wrapped in light-coloured paper and a small ribbon. I chose roses because I wanted the gift to feel warm and personal rather than expensive. For me, a good gift should show that you have actually thought about the person.</div></div>
+          </div>
+    <div class="idea-reuse"><b>可套題型：</b>gift for a friend / birthday present / special occasion / something you want to buy for someone</div>
+        </div>
+      </article>
+    
+      <article class="idea-card">
+        <button class="idea-head" type="button" aria-expanded="false">
+          <span>🍜 食物 / Food</span>
+          <span class="idea-toggle">展開</span>
+        </button>
+        <div class="idea-body" hidden>
+          <div class="idea-core"><b>核心觀點</b><div>不要只講 delicious；用「味道＋人＋情境」讓食物有記憶點。</div></div>
+          <div class="idea-line"><b>思路</b><div>taste → situation/person → social/cultural meaning</div></div>
+          <div class="idea-line"><b>English</b><div>What I enjoy most is not only the taste. The food is usually shared with other people, so the meal becomes part of the conversation and feels more memorable.</div></div>
+          <div class="idea-line"><b>中文</b><div>食物不要只說好吃。把它連到一起吃的人、當時的場合，或文化體驗。</div></div>
+          
+          <div class="example-box">
+            <div class="example-title">固定例子：和朋友吃韓式烤肉</div>
+            <div class="example-detail"><b>具體長相 / 情境：</b>長相：桌上有烤盤、牛肉、豬五花、泡菜和很多小菜，大家自己烤。</div>
+            <div class="example-detail"><b>為什麼好用：</b>為什麼喜歡：不只 delicious，而是 everyone cooks and shares food together，所以自然會聊天。</div>
+            <div class="example-answer"><b>可直接說的版本</b><div>A foreign food I really enjoy is Korean barbecue. It usually includes different kinds of meat, kimchi and small side dishes, and we cook the meat ourselves on a grill in the middle of the table. I normally have it with friends, so what I enjoy is not only the taste. The meal naturally creates conversation and becomes a social experience.</div></div>
+          </div>
+    <div class="idea-reuse"><b>可套題型：</b>foreign food / special meal / restaurant / food you like / traditional food</div>
+        </div>
+      </article>
+    
+      <article class="idea-card">
+        <button class="idea-head" type="button" aria-expanded="false">
+          <span>👕 衣服 / Clothes</span>
+          <span class="idea-toggle">展開</span>
+        </button>
+        <div class="idea-body" hidden>
+          <div class="idea-core"><b>核心觀點</b><div>衣服可以從「實用」或「表達個性」切入，不要只講外觀。</div></div>
+          <div class="idea-line"><b>思路</b><div>appearance → comfort/function → identity/memory</div></div>
+          <div class="idea-line"><b>English</b><div>I like it because it is simple and comfortable, but it also feels like me. I do not need clothes to attract attention; I want them to fit my daily life and personality.</div></div>
+          <div class="idea-line"><b>中文</b><div>衣服可以用兩條線：舒服好穿，或能表達個性。最後連回「適合我」而不是「很時尚」。</div></div>
+          
+          <div class="example-box">
+            <div class="example-title">固定例子：深藍色 oversized hoodie</div>
+            <div class="example-detail"><b>具體長相 / 情境：</b>長相：深藍色、寬鬆、胸前只有小小 logo，布料很軟。</div>
+            <div class="example-detail"><b>為什麼好用：</b>為什麼喜歡：週末或在家穿很舒服，而且不需要很亮眼，反而很像你的風格。</div>
+            <div class="example-answer"><b>可直接說的版本</b><div>My favourite piece of clothing is a dark blue oversized hoodie. It is very simple, with a small logo on the front, and the material is soft and comfortable. I usually wear it at weekends or when I just want to relax. I like it because it does not attract much attention, but it feels very much like me.</div></div>
+          </div>
+    <div class="idea-reuse"><b>可套題型：</b>favourite clothes / unusual clothes / clothing gift / uniform / shopping</div>
+        </div>
+      </article>
+    
+      <article class="idea-card">
+        <button class="idea-head" type="button" aria-expanded="false">
+          <span>📱 物品 / Object</span>
+          <span class="idea-toggle">展開</span>
+        </button>
+        <div class="idea-body" hidden>
+          <div class="idea-core"><b>核心觀點</b><div>物品重要不是因為本身，而是它「減少多少日常麻煩」。</div></div>
+          <div class="idea-line"><b>思路</b><div>function → repeated use → removes friction → becomes essential</div></div>
+          <div class="idea-line"><b>English</b><div>It is useful because it removes many small problems from my daily routine. I could live without it, but everything would become slower and less convenient.</div></div>
+          <div class="idea-line"><b>中文</b><div>不要硬說 cannot live without。說它每天替你省掉很多小麻煩，所以沒有它會變得更慢、更麻煩。</div></div>
+          
+          <div class="example-box">
+            <div class="example-title">固定例子：筆電</div>
+            <div class="example-detail"><b>具體長相 / 情境：</b>長相：銀色或深色、13–14 吋，平常放在書桌上。</div>
+            <div class="example-detail"><b>為什麼好用：</b>為什麼重要：工作、查資料、IELTS、研究所準備都靠它。沒有它不是不能生活，而是所有事情會慢很多。</div>
+            <div class="example-answer"><b>可直接說的版本</b><div>A useful object I depend on is my laptop. It is a simple 13- or 14-inch laptop that usually stays on my desk. I use it for work, English practice, research and graduate-school preparation. I could live without it, but many parts of my daily routine would become much slower and less efficient.</div></div>
+          </div>
+    <div class="idea-reuse"><b>可套題型：</b>useful object / invention / electronic device / old object / something you bought</div>
+        </div>
+      </article>
+    
+      <article class="idea-card">
+        <button class="idea-head" type="button" aria-expanded="false">
+          <span>🏠 地方 / Place</span>
+          <span class="idea-toggle">展開</span>
+        </button>
+        <div class="idea-body" hidden>
+          <div class="idea-core"><b>核心觀點</b><div>地方的重點不是景點清單，而是「這個環境讓你的狀態怎麼改變」。</div></div>
+          <div class="idea-line"><b>思路</b><div>place → atmosphere → change in feeling/behaviour → reason to return</div></div>
+          <div class="idea-line"><b>English</b><div>What I like most is the change of pace. When I am there, I naturally slow down and stop thinking about work for a while.</div></div>
+          <div class="idea-line"><b>中文</b><div>地方題不要一直列設施。說那個地方如何讓你慢下來、放鬆，或變得更專心。</div></div>
+          
+          <div class="example-box">
+            <div class="example-title">固定例子：自己的房間</div>
+            <div class="example-detail"><b>具體長相 / 情境：</b>長相：床、書桌、筆電、熟悉的家具；不一定新，但都是自己的東西。</div>
+            <div class="example-detail"><b>為什麼好用：</b>為什麼喜歡：不是因為裝潢，而是回家後可以不用回應任何人，讓腦袋 reset。</div>
+            <div class="example-answer"><b>可直接說的版本</b><div>The place I usually talk about is my bedroom. It has my desk, laptop and familiar furniture, so it is not luxurious at all. What I like is the feeling of privacy. After work, I can close the door, listen to music or simply lie down for a while. It is the place where my brain can finally switch off.</div></div>
+          </div>
+    <div class="idea-reuse"><b>可套題型：</b>quiet place / place to revisit / beautiful place / place with trees / building / sports place</div>
+        </div>
+      </article>
+    
+      <article class="idea-card">
+        <button class="idea-head" type="button" aria-expanded="false">
+          <span>🎬 活動 / Event</span>
+          <span class="idea-toggle">展開</span>
+        </button>
+        <div class="idea-body" hidden>
+          <div class="idea-core"><b>核心觀點</b><div>活動好不好記，不在於規模，而在於「共同反應」和情緒。</div></div>
+          <div class="idea-line"><b>思路</b><div>event → shared moment → emotion → memory</div></div>
+          <div class="idea-line"><b>English</b><div>What made it memorable was the shared reaction. Everyone responded to the same moment together, so the experience felt much stronger than watching it alone.</div></div>
+          <div class="idea-line"><b>中文</b><div>event 題可以抓「大家一起反應」：一起歡呼、一起緊張、一起笑，因此記憶更強。</div></div>
+          
+          <div class="example-box">
+            <div class="example-title">固定例子：大學畢業典禮</div>
+            <div class="example-detail"><b>具體長相 / 情境：</b>畫面：穿學士服、和同學拍照、收到花。</div>
+            <div class="example-detail"><b>為什麼好用：</b>為什麼重要：代表學生生活結束，正式進到下一個人生階段。</div>
+            <div class="example-answer"><b>可直接說的版本</b><div>A memorable event for me was my university graduation ceremony. I wore a graduation gown, took photos with my classmates and received flowers. What made the day important was not the ceremony itself. It felt like the end of student life and the beginning of a new stage, so the whole day carried a strong sense of transition.</div></div>
+          </div>
+    <div class="idea-reuse"><b>可套題型：</b>sports event / concert / live performance / celebration / competition</div>
+        </div>
+      </article>
+    
+      <article class="idea-card">
+        <button class="idea-head" type="button" aria-expanded="false">
+          <span>🛠️ 技能 / Skill</span>
+          <span class="idea-toggle">展開</span>
+        </button>
+        <div class="idea-body" hidden>
+          <div class="idea-core"><b>核心觀點</b><div>技能的高分點不是「我學會了」，而是「它改變我之後怎麼處理問題」。</div></div>
+          <div class="idea-line"><b>思路</b><div>difficulty → practice → change in approach → long-term use</div></div>
+          <div class="idea-line"><b>English</b><div>The skill helped me become more independent because I no longer needed someone else to solve the problem for me.</div></div>
+          <div class="idea-line"><b>中文</b><div>技能題最後一定要講 impact：讓你更獨立、更有效率、更有耐心，或更敢處理問題。</div></div>
+          
+          <div class="example-box">
+            <div class="example-title">固定例子：爸爸教我騎腳踏車</div>
+            <div class="example-detail"><b>具體長相 / 情境：</b>畫面：爸爸一開始扶著車後面，你一直怕失去平衡，後來才發現他已經放手。</div>
+            <div class="example-detail"><b>為什麼好用：</b>核心：confidence comes after practice, not before it。</div>
+            <div class="example-answer"><b>可直接說的版本</b><div>A skill I learned as a child was riding a bicycle. My father held the back of the bike at first because I was afraid of losing balance. After enough practice, there was one moment when I realised he was no longer holding it and I was riding by myself. That experience taught me that confidence often comes after practice, not before it.</div></div>
+          </div>
+    <div class="idea-reuse"><b>可套題型：</b>useful skill / skill from older people / childhood skill / skill to improve</div>
+        </div>
+      </article>
+    
+      <article class="idea-card">
+        <button class="idea-head" type="button" aria-expanded="false">
+          <span>💬 建議 / Advice</span>
+          <span class="idea-toggle">展開</span>
+        </button>
+        <div class="idea-body" hidden>
+          <div class="idea-core"><b>核心觀點</b><div>建議應該提供方向，而不是替對方做決定。</div></div>
+          <div class="idea-line"><b>思路</b><div>listen → clarify problem → offer options → person decides</div></div>
+          <div class="idea-line"><b>English</b><div>Good advice should help someone think more clearly, not think for them. The final decision still needs to belong to the person who will live with the consequences.</div></div>
+          <div class="idea-line"><b>中文</b><div>最萬用的一句：Advice should help you decide, not decide for you.</div></div>
+          
+          <div class="example-box">
+            <div class="example-title">固定例子：幫姪女解數學</div>
+            <div class="example-detail"><b>具體長相 / 情境：</b>畫面：她看到長題目就緊張，你沒有直接告訴她答案，而是叫她先找已知資訊、拆成小步驟。</div>
+            <div class="example-detail"><b>為什麼好用：</b>核心：Good advice should help someone think, not think for them.</div>
+            <div class="example-answer"><b>可直接說的版本</b><div>I once helped my niece when she was struggling with maths. Instead of giving her the answer, I asked her to underline the information she already had and break the problem into smaller steps. She eventually solved the next question by herself. That is why I believe good advice should help someone think more clearly, not think for them.</div></div>
+          </div>
+    <div class="idea-reuse"><b>可套題型：</b>advice / helping / parents / friends / online advice / decisions</div>
+        </div>
+      </article>
+    </div>
+  <div class="part2-bank-rule"><b>共用原則：</b>同一個人、同一個物品、同一個故事可以回答很多題。真正需要改的通常只是「題目要求你看的角度」，不是整個故事。</div>
+</section>
 
 <section class="daily-panel" id="dailyMock">
     <div class="daily-top">
@@ -1583,6 +1838,40 @@ dailyPool=getDayCards();
 renderDailyCard();
 
 render();
+
+(() => {
+  const bank = document.getElementById("part2IdeaBank");
+  if(!bank || bank.dataset.ready==="1") return;
+  bank.dataset.ready="1";
+  const heads=[...bank.querySelectorAll(".idea-head")];
+  const expandBtn=document.getElementById("expandIdeaBank");
+  let allOpen=false;
+
+  function setCard(btn,open){
+    const body=btn.parentElement.querySelector(".idea-body");
+    if(!body) return;
+    body.hidden=!open;
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+    const toggle=btn.querySelector(".idea-toggle");
+    if(toggle) toggle.textContent=open ? "收合" : "展開";
+  }
+
+  heads.forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      const open=btn.getAttribute("aria-expanded")!=="true";
+      setCard(btn,open);
+    });
+  });
+
+  if(expandBtn){
+    expandBtn.addEventListener("click",()=>{
+      allOpen=!allOpen;
+      heads.forEach(btn=>setCard(btn,allOpen));
+      expandBtn.textContent=allOpen ? "全部收合" : "全部展開";
+    });
+  }
+})();
+
 </script>
 </body>
 </html>
