@@ -152,6 +152,50 @@ details[open] .chev{transform:rotate(180deg)}
 
 .part2-example-index{margin-top:12px;padding:10px 12px;border-radius:10px;background:var(--accent-soft);line-height:1.65}
 
+
+/* ===== 0909 Topic Practice ===== */
+.topic-practice{
+  margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:22px;
+  padding:20px;box-shadow:var(--shadow)
+}
+.topic-practice-top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap}
+.topic-practice h2{margin:3px 0 4px;font-size:23px}
+.topic-practice-desc{color:var(--muted);font-size:14px;line-height:1.65}
+.topic-source-badges{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+.topic-source-badge{padding:6px 9px;border-radius:999px;background:var(--accent-soft);font-size:12px;font-weight:800}
+.topic-modebar{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.topic-mode.active{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.topic-controls{display:grid;grid-template-columns:160px minmax(230px,1fr) auto;gap:10px;margin-top:14px;align-items:end}
+.topic-control label{display:block;font-size:12px;font-weight:800;color:var(--muted);margin-bottom:5px}
+.topic-control select{
+  width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:12px;
+  background:#fff;color:var(--text);font-size:16px
+}
+.topic-practice-grid{display:grid;grid-template-columns:minmax(0,1fr) 230px;gap:14px;margin-top:15px}
+.topic-card,.topic-side{border:1px solid var(--line);border-radius:18px;padding:18px;background:#fff}
+.topic-meta{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.topic-part{font-size:13px;font-weight:800;color:var(--accent)}
+.topic-name{font-size:13px;color:var(--muted);margin-top:2px}
+.topic-progress{font-size:13px;color:var(--muted)}
+.topic-question{font-size:21px;line-height:1.45;font-weight:800;margin:15px 0 12px}
+.topic-cue{background:#f8fafc;border-radius:13px;padding:13px 15px;margin:10px 0;font-size:14px}
+.topic-cue ul{margin:7px 0 0;padding-left:20px}
+.topic-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.topic-answer{display:none;border-top:1px solid var(--line);margin-top:16px;padding-top:15px;line-height:1.72}
+.topic-answer.show{display:block}
+.topic-link-note{background:var(--accent-soft);border-radius:12px;padding:12px 14px;margin-top:12px;line-height:1.6}
+.topic-link-note b{display:block;margin-bottom:3px}
+.topic-side h3{font-size:14px;margin:0 0 8px}
+.topic-side p{font-size:13px;color:var(--muted);line-height:1.6;margin:0 0 10px}
+.topic-flow{display:grid;gap:8px}
+.topic-flow-step{padding:10px;border:1px solid var(--line);border-radius:10px;font-size:13px;line-height:1.45}
+.topic-flow-step.active{border-color:var(--accent);background:var(--accent-soft);font-weight:800}
+.topic-side .mini{font-size:12px;color:var(--muted);margin-top:10px}
+@media(max-width:760px){
+  .topic-controls{grid-template-columns:1fr}
+  .topic-practice-grid{grid-template-columns:1fr}
+}
+
 </style>
 </head>
 <body>
@@ -434,6 +478,90 @@ details[open] .chev{transform:rotate(180deg)}
       </article>
     </div>
   <div class="part2-bank-rule"><b>共用原則：</b>同一個人、同一個物品、同一個故事可以回答很多題。真正需要改的通常只是「題目要求你看的角度」，不是整個故事。</div>
+</section>
+
+
+<section class="topic-practice" id="topicPractice">
+  <div class="topic-practice-top">
+    <div>
+      <div class="daily-kicker">0909 新版題庫 · 主題選擇模式</div>
+      <h2>🎯 按主題練習</h2>
+      <div class="topic-practice-desc">
+        這個模式只讀取 0909 新版預測題庫。Part 1 可單獨選主題；Part 2 + Part 3 會自動綁定同一個主題，
+        先做 Part 2 cue card，再接該主題的 Part 3。
+      </div>
+      <div class="topic-source-badges">
+        <span class="topic-source-badge">947 題＋答案</span>
+        <span class="topic-source-badge">Part 1：62 主題</span>
+        <span class="topic-source-badge">Part 2→3：97 組連貫主題</span>
+      </div>
+<div class="today-line" style="margin-top:12px">
+  <b>新版題庫說明：</b>
+  「0909 預測題庫」與「主題選擇模式」都只讀取 0909 更新版題庫；
+  9/1–9/19 每日模考則保留為你的歷史練習紀錄，不會被刪掉。
+</div>
+
+    </div>
+  </div>
+
+  <div class="topic-modebar">
+    <button id="topicModeP1" class="secondary topic-mode" type="button">Part 1 主題</button>
+    <button id="topicModeP23" class="secondary topic-mode active" type="button">Part 2 → Part 3 連貫主題</button>
+    <button id="topicRandomTopic" class="secondary" type="button">🎲 隨機主題</button>
+  </div>
+
+  <div class="topic-controls">
+    <div class="topic-control">
+      <label for="topicCategory">題型分類</label>
+      <select id="topicCategory"></select>
+    </div>
+    <div class="topic-control">
+      <label for="topicNameSelect">選擇主題</label>
+      <select id="topicNameSelect"></select>
+    </div>
+    <button id="topicRestart" class="secondary" type="button">↺ 從此主題第一題開始</button>
+  </div>
+
+  <div class="topic-practice-grid">
+    <div class="topic-card">
+      <div class="topic-meta">
+        <div>
+          <div id="topicPart" class="topic-part"></div>
+          <div id="topicName" class="topic-name"></div>
+        </div>
+        <div id="topicProgress" class="topic-progress"></div>
+      </div>
+
+      <div id="topicQuestion" class="topic-question"></div>
+      <div id="topicCue" class="topic-cue" style="display:none"></div>
+
+      <div class="topic-actions">
+        <button id="topicPrev" class="secondary" type="button">← 上一題</button>
+        <button id="topicReveal" class="primary" type="button">看答案</button>
+        <button id="topicNext" class="secondary" type="button">下一題 →</button>
+      </div>
+
+      <div id="topicAnswer" class="topic-answer">
+        <div class="answer-label">ENGLISH</div>
+        <div id="topicEn"></div>
+        <div id="topicZhWrap" style="display:none">
+          <div class="answer-label" style="margin-top:14px">繁中翻譯 / 理解</div>
+          <div id="topicZh"></div>
+        </div>
+        <div id="topicCoreWrap" class="topic-link-note" style="display:none">
+          <b>共用故事 / 核心觀點</b>
+          <div id="topicCore"></div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="topic-side">
+      <h3 id="topicFlowTitle">P2 → P3 同主題流程</h3>
+      <p id="topicFlowDesc">選一個主題後，先做 Part 2，再一路做完同一主題的 Part 3。</p>
+      <div id="topicFlow" class="topic-flow"></div>
+      <div class="mini">答案預設隱藏。切換主題時會自動回到第一題。</div>
+    </aside>
+  </div>
 </section>
 
 <section class="daily-panel" id="dailyMock">
@@ -1870,6 +1998,187 @@ render();
       expandBtn.textContent=allOpen ? "全部收合" : "全部展開";
     });
   }
+})();
+
+
+// ===== 0909 Topic Practice =====
+(() => {
+  const root=document.getElementById("topicPractice");
+  if(!root || root.dataset.ready==="1") return;
+  root.dataset.ready="1";
+
+  const p1CategoryMap={"Politeness": "人物", "Friends": "人物", "Teachers": "人物", "Work/ Study": "人物", "Computers/tablets": "事物", "Secondary school": "事物", "Paper": "事物", "Fruit and vegetables": "事物", "Rubbish and recycling": "事物", "Advertisement": "事物", "Shoes": "事物", "Name": "事物", "Films/cinemas": "事物", "Sports programs": "事物", "History": "事物", "Views": "事物", "Childhood activities": "事物", "Watch": "事物", "Cars": "事物", "Websites": "事物", "Mirrors": "事物", "Music": "事物", "Social media": "事物", "Dream and ambition": "事物", "Outer space and stars": "事物", "Science": "事物", "Clothing": "事物", "Headphones": "事物", "Jokes & Comedies": "事物", "Art": "事物", "Building": "事物", "Old buildings": "事物", "Scenery": "事物", "Sports Team": "事物", "Food": "事物", "Morning time": "事物", "Evening time": "事物", "Pets and Animals": "事物", "Memory": "事物", "Gifts": "事物", "Hobby": "事物", "Feeling bored": "事件", "Collecting things": "事件", "Lost and found": "事件", "Tiredness": "事件", "Travelling": "事件", "Morning routines": "事件", "Shopping": "事件", "Tidiness": "事件", "Life stages": "事件", "Reading": "事件", "Walking": "事件", "Typing": "事件", "Spare time": "事件", "Singing": "事件", "Street market": "地點", "Public gardens and parks": "地點", "Crowded place": "地點", "The city you live in": "地點", "Home & Accommodation": "地點", "Hometown": "地點", "The area you live in": "地點"};
+  const p23CategoryMap={"只見過一次且想繼續了解的人": "人物", "幫人提升健康狀態": "人物", "教你新技能的人": "人物", "學習並喜歡歷史的人": "人物", "擅⾧做手工的人": "人物", "喜歡拍照的人": "人物", "有條理的人": "人物", "快樂的人": "人物", "做困難事情並成功的人": "人物", "受歡迎的人": "人物", "欽佩的運動員": "人物", "尊敬的比你年⾧的人": "人物", "擅⾧學習和講新語言的人": "人物", "在成功公司工作的人": "人物", "擁有成功事業的人": "人物", "想從事醫療行業的人": "人物", "喜歡在家或花園種植物的人": "人物", "愛護自然的人": "人物", "樂於助人的人": "人物", "喜歡畫畫的孩子": "人物", "擅⾧做計畫的人": "人物", "機智地解決問題的人": "人物", "青梅竹馬": "人物", "本地名人": "人物", "想見的名人": "人物", "節省時間的方法/改變": "事物", "印象深刻的课程": "事物", "送朋友的禮物": "事物", "最不喜歡的電影": "事物", "和朋友度過的愉快夜晚": "事物", "小時候學到的新技能": "事物", "保護環境的法律": "事物", "想要頒布的環保法律": "事物", "想頒布的新法律": "事物", "⾧久目標/抱負": "事物", "包含動物的故事或書籍": "事物", "名人出演的廣告": "事物", "特別場合吃的⾷物": "事物", "有趣的影片": "事物", "近期改變的計畫": "事物", "重要決定": "事物", "對結果開心的重要決定": "事物", "收到特殊蛋糕": "事物", "喜歡的電視節目/網路節目": "事物", "想從事的短期海外工作": "事物", "完美工作": "事物", "想擁有的科技產品": "事物", "朋友自學": "事物", "不享受的音樂活動": "事物", "應用程式": "事物", "喜歡的建築": "事物", "喜歡或不喜歡的高聳建築": "事物", "有趣的建築": "事物", "花費超過預期的物品": "事物", "對家庭重要的東西": "事物", "公共場所弄丢物品": "事件", "印象深刻的聚會": "事件", "聽不感興趣的話": "事件", "賺錢買特别物品": "事件", "看過的名人採訪": "事件", "好的購物服務": "事件", "浪費時間的活動": "事件", "不喜歡的短途旅行": "事件", "近期改變": "事件", "當地新聞": "事件", "改變重要决定": "事件", "改變重要想法": "事件", "發出很久都沒收到回覆的訊息/郵件": "事件", "遇到的科技問題": "事件", "交通壅塞": "事件", "花費少的外出日": "事件", "語言學習": "事件", "喜歡看的現場體育賽事": "事件", "在團隊中工作": "事件", "早起": "事件", "給別人建議": "事件", "喜歡的電影": "事件", "腳踏車/摩托車/汽車旅行": "事件", "組織快樂活動": "事件", "微笑的場合": "事件", "鼓勵別人做他不願意做的事": "事件", "發揮想像力": "事件", "禁用手機的場合": "事件", "為家人感到驕傲": "事件", "去過的靠近自然的地方": "地點", "喜歡的自然之地": "地點", "擁擠的地方": "地點", "嘈雜的地方": "地點", "重要河流/湖泊": "地點", "推薦旅遊過的地方": "地點", "想有空時去旅遊的地方": "地點", "想拜訪但不想住的家": "地點", "去過的無聊地方": "地點", "想再去一次的城市": "地點", "去過且喜歡的城市": "地點", "商店": "地點", "安靜的地方": "地點"};
+
+  const categorySel=document.getElementById("topicCategory");
+  const topicSel=document.getElementById("topicNameSelect");
+  const modeP1=document.getElementById("topicModeP1");
+  const modeP23=document.getElementById("topicModeP23");
+  const randomTopicBtn=document.getElementById("topicRandomTopic");
+  const restartBtn=document.getElementById("topicRestart");
+  const prevBtn=document.getElementById("topicPrev");
+  const nextBtn=document.getElementById("topicNext");
+  const revealBtn=document.getElementById("topicReveal");
+
+  const partEl=document.getElementById("topicPart");
+  const nameEl=document.getElementById("topicName");
+  const progressEl=document.getElementById("topicProgress");
+  const questionEl=document.getElementById("topicQuestion");
+  const cueEl=document.getElementById("topicCue");
+  const answerEl=document.getElementById("topicAnswer");
+  const enEl=document.getElementById("topicEn");
+  const zhEl=document.getElementById("topicZh");
+  const zhWrap=document.getElementById("topicZhWrap");
+  const coreEl=document.getElementById("topicCore");
+  const coreWrap=document.getElementById("topicCoreWrap");
+  const flowTitle=document.getElementById("topicFlowTitle");
+  const flowDesc=document.getElementById("topicFlowDesc");
+  const flowEl=document.getElementById("topicFlow");
+
+  let mode="p23";
+  let cards=[];
+  let index=0;
+
+  const categories=["人物","事物","事件","地點"];
+
+  function uniqueTopics(part){
+    const seen=[];
+    data.forEach(x=>{if(x.part===part && !seen.includes(x.topic)) seen.push(x.topic);});
+    return seen;
+  }
+
+  function mapForMode(){
+    return mode==="p1" ? p1CategoryMap : p23CategoryMap;
+  }
+
+  function topicsForCategory(cat){
+    const map=mapForMode();
+    const base=mode==="p1" ? uniqueTopics("Part 1") : uniqueTopics("Part 2");
+    return base.filter(t=>map[t]===cat);
+  }
+
+  function fillCategories(){
+    const map=mapForMode();
+    const available=categories.filter(c=>Object.values(map).includes(c));
+    categorySel.innerHTML=available.map(c=>`<option value="${c}">${c}</option>`).join("");
+    if(mode==="p23" && available.includes("事物")) categorySel.value="事物";
+    fillTopics();
+  }
+
+  function fillTopics(preferred=null){
+    const topics=topicsForCategory(categorySel.value);
+    topicSel.innerHTML=topics.map(t=>`<option value="${esc(t)}">${esc(t)}</option>`).join("");
+    const defaultTopic = preferred && topics.includes(preferred)
+      ? preferred
+      : (mode==="p23" && topics.includes("送朋友的禮物") ? "送朋友的禮物" : topics[0]);
+    if(defaultTopic) topicSel.value=defaultTopic;
+    buildCards();
+  }
+
+  function buildCards(){
+    const topic=topicSel.value;
+    if(mode==="p1"){
+      cards=data.filter(x=>x.part==="Part 1" && x.topic===topic);
+    }else{
+      const p2=data.filter(x=>x.part==="Part 2" && x.topic===topic);
+      const p3=data.filter(x=>x.part==="Part 3" && x.topic===topic);
+      cards=[...p2,...p3];
+    }
+    index=0;
+    renderCard();
+  }
+
+  function renderFlow(){
+    if(mode==="p1"){
+      flowTitle.textContent="Part 1 主題流程";
+      flowDesc.textContent="同一個 Part 1 主題一次練完，答案仍然逐題隱藏。";
+      flowEl.innerHTML=cards.map((c,i)=>`<div class="topic-flow-step ${i===index?"active":""}">Q${i+1} · ${esc(c.q)}</div>`).join("");
+    }else{
+      flowTitle.textContent="P2 → P3 同主題流程";
+      flowDesc.textContent="先 Part 2，再接同一主題的所有 Part 3；不會跳到不相關主題。";
+      flowEl.innerHTML=cards.map((c,i)=>`<div class="topic-flow-step ${i===index?"active":""}">${esc(c.part)} · ${i===0?"Cue Card":"Discussion"}</div>`).join("");
+    }
+  }
+
+  function renderCard(){
+    if(!cards.length){
+      partEl.textContent="";
+      nameEl.textContent="";
+      progressEl.textContent="";
+      questionEl.textContent="這個主題目前沒有題目。";
+      cueEl.style.display="none";
+      answerEl.classList.remove("show");
+      renderFlow();
+      return;
+    }
+    const c=cards[index];
+    partEl.textContent=c.part;
+    nameEl.textContent=c.topic;
+    progressEl.textContent=`${index+1} / ${cards.length}`;
+    questionEl.textContent=c.q;
+
+    if(c.cue && c.cue.length){
+      cueEl.style.display="block";
+      cueEl.innerHTML="<b>You should say:</b><ul>"+c.cue.map(x=>`<li>${esc(x)}</li>`).join("")+"</ul>";
+    }else{
+      cueEl.style.display="none";
+      cueEl.innerHTML="";
+    }
+
+    enEl.textContent=c.en || "";
+    zhEl.textContent=c.zh || "";
+    zhWrap.style.display=c.zh ? "block" : "none";
+    coreEl.textContent=c.core || "";
+    coreWrap.style.display=c.core ? "block" : "none";
+
+    answerEl.classList.remove("show");
+    revealBtn.textContent="看答案";
+    renderFlow();
+  }
+
+  function setMode(nextMode){
+    mode=nextMode;
+    modeP1.classList.toggle("active",mode==="p1");
+    modeP23.classList.toggle("active",mode==="p23");
+    fillCategories();
+  }
+
+  modeP1.addEventListener("click",()=>setMode("p1"));
+  modeP23.addEventListener("click",()=>setMode("p23"));
+
+  categorySel.addEventListener("change",()=>fillTopics());
+  topicSel.addEventListener("change",buildCards);
+
+  randomTopicBtn.addEventListener("click",()=>{
+    const topics=topicsForCategory(categorySel.value);
+    if(!topics.length) return;
+    const current=topicSel.value;
+    let choice=topics[Math.floor(Math.random()*topics.length)];
+    if(topics.length>1){
+      while(choice===current) choice=topics[Math.floor(Math.random()*topics.length)];
+    }
+    topicSel.value=choice;
+    buildCards();
+  });
+
+  restartBtn.addEventListener("click",()=>{index=0;renderCard();});
+  prevBtn.addEventListener("click",()=>{
+    if(!cards.length) return;
+    index=(index-1+cards.length)%cards.length;
+    renderCard();
+  });
+  nextBtn.addEventListener("click",()=>{
+    if(!cards.length) return;
+    index=(index+1)%cards.length;
+    renderCard();
+  });
+  revealBtn.addEventListener("click",()=>{
+    const open=answerEl.classList.toggle("show");
+    revealBtn.textContent=open ? "隱藏答案" : "看答案";
+  });
+
+  // Default: P2→P3, Things, Gift topic.
+  setMode("p23");
 })();
 
 </script>
